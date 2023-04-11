@@ -30,7 +30,11 @@ section {
     left: -10%;
     width: 120%;
     height: 100vh;
-    background-color: #C06C84;
+    background-image: url("../assets/images/sky.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container #scene .layer {
@@ -47,30 +51,25 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
 }
 
-.container .layer img.moon {
-    background-blend-mode: screen;
-}
 
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #C06C84;
+    background-color: var(--orange);
 }
 
 .wrapper {
-    /* background: #fff; */
     border-radius: 10px;
     width: 450px;
-    background: rgba(255, 255, 255, 0.15);
+    background: #f8b195(255, 255, 255, 0.15);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    /* -webkit-backdrop-filter: blur(5px); */
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
