@@ -104,11 +104,8 @@ body {
     position: relative;
     width: calc(100% / 7);
 }
-
 .calendar .month li {
-    float: right;
 }
-
 .calendar .weeks li {
     font-weight: 500;
     margin-bottom: 20px;
