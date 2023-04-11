@@ -18,34 +18,34 @@
     ></script>
 </head>
 
+
 <body>
+ 
   <section>
     <div class="container">
+      
       <div id="scene">
-        <div class="layer" data-depth-x="-0.5" data-depth-y="0.25"><img src="assets/images/cloud right.png" class="moon"></div>
-        <div class="layer" data-depth-x="0.15"><img src="assets/images/cloud left.png"></div>
-        <div class="layer" data-depth-x="0.25"><img src="assets/images/sun.png"></div>
-        <div class="layer" data-depth-x="-0.25"><img src="assets/images/waves.png"></div>
-        <div class="layer" data-depth-x="-0.25"><img src="assets/images/sand.png"></div>
+        <div class="layer" data-depth-x="-0.5" data-depth-y="0.25"><img src="assets/images/sun.png"></div>
+        <div class="layer" data-depth-x="0.30"><img src="assets/images/clouds.png"></div>
+        <div class="layer" data-depth-x="0.25"><img src="assets/images/water.png"></div>
+        <div class="layer" data-depth-x="-0.25"><img src="assets/images/rocks.png"></div>
+        <!-- <div class="layer" data-depth-x="-0.25"><img src="assets/images/sand.png"></div> -->
       </div>
     </div>
 
     <div class="wrapper">
       <header>
+         <!--Add buttons to initiate auth sequence and sign out-->
+        <button id="authorize_button" onclick="handleAuthClick()">Signing your account</button>
+       <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
         <h1 id="header"> Select a date for your event! </h1>
         <p class="current-date">Month Year</p>
-        <div class="icons">
-          <span class="material-symbols-rounded"> </span>
+        <!-- <div class="icons">
+          <span class="material-symbols-rounded"> < </span>
               <span class="material-symbols-rounded"> > </span>
-        </div>
+        </div> -->
       </header>
       <div class="calendar">
-        <ul>class ="month"
-          <li>
-          <h1>April</h1>
-          </li>
-  
-        </ul>
         <ul class="weeks">
           <li>Sun</li>
           <li>Mon</li>
@@ -90,16 +90,18 @@
           <li class="active">28</li>
           <li class="active">29</li>
           <li class="active">30</li>
+          <li class="inactive">1</li>
         </ul>
       </div>
     </div>
 
   </section>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
-  <script>
-    var scene = document.getElementById('scene');
-    var parallax = new Parallax(scene);
-  </script>
+  <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+  <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+  <script src="./assets/script.js"></script>
+
+  
 </body>
 
 </html>
