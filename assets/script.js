@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-console.log(window.location.origin)
-console.log(window.location.host)
-console.log(window.location.hostname)
-console.log(window.location.port)
-const calendar = document.querySelector(".calendar"),
-  date = document.querySelector(".date"),
-  daysContainer = document.querySelector(".days"),
-  prev = document.querySelector(".prev"),
-  next = document.querySelector(".next"),
-  todayBtn = document.querySelector(".today-btn"),
-  gotoBtn = document.querySelector(".goto-btn"),
-  dateInput = document.querySelector(".date-input"),
-=======
  //-------------------------------google calendar request---------------------------------------------
  /* exported gapiLoaded */
       /* exported gisLoaded */
@@ -161,38 +147,27 @@ const calendar = document.querySelector(".calendar"),
   // todayBtn = document.querySelector(".today-btn"),
   //gotoBtn = document.querySelector(".goto-btn"),
   // dateInput = document.querySelector(".date-input"),
->>>>>>> dev
   eventDay = document.querySelector(".event-day"),
   eventDate = document.querySelector(".event-date"),
   eventsContainer = document.querySelector(".events"),
   addEventBtn = document.querySelector(".add-event"),
-<<<<<<< HEAD
-  addEventWrapper = document.querySelector(".add-event-wrapper "),
-=======
   addEventWrapper = document.querySelector(".add-event-wrapper"),
->>>>>>> dev
   addEventCloseBtn = document.querySelector(".close "),
   addEventTitle = document.querySelector(".event-name "),
   addEventFrom = document.querySelector(".event-time-from "),
   addEventTo = document.querySelector(".event-time-to "),
   addEventSubmit = document.querySelector(".add-event-btn ");
-<<<<<<< HEAD
-=======
   var currentMonth = dayjs().format('MMMM YYYY');
   console.log(currentMonth)
   var currentMonthEl = document.querySelector('.current-date')
   var scene = document.getElementById('scene');
   var parallax = new Parallax(scene);
->>>>>>> dev
 
 let today = new Date();
 let activeDay;
 let month = today.getMonth();
 let year = today.getFullYear();
-<<<<<<< HEAD
-=======
 currentMonthEl.textContent = currentMonth;
->>>>>>> dev
 
 const months = [
   "January",
