@@ -95,7 +95,7 @@
         if (token !== null) {
           google.accounts.oauth2.revoke(token.access_token);
           gapi.client.setToken('');
-          document.getElementById('content').innerText = '';
+          // document.getElementById('content').innerText = '';
           document.getElementById('authorize_button').innerText = 'Authorize';
           document.getElementById('signout_button').style.visibility = 'hidden';
         }
@@ -106,34 +106,34 @@
        * the authorized user's calendar. If no events are found an
        * appropriate message is printed.
        */
-      async function listUpcomingEvents() {
-        let response;
-        try {
-          const request = {
-            'calendarId': 'primary',
-            'timeMin': (new Date()).toISOString(),
-            'showDeleted': false,
-            'singleEvents': true,
-            'maxResults': 10,
-            'orderBy': 'startTime',
-          };
-          response = await gapi.client.calendar.events.list(request);
-        } catch (err) {
-          document.getElementById('content').innerText = err.message;
-          return;
-        }
+      // async function listUpcomingEvents() {
+      //   let response;
+      //   try {
+      //     const request = {
+      //       'calendarId': 'primary',
+      //       'timeMin': (new Date()).toISOString(),
+      //       'showDeleted': false,
+      //       'singleEvents': true,
+      //       'maxResults': 10,
+      //       'orderBy': 'startTime',
+      //     };
+      //     response = await gapi.client.calendar.events.list(request);
+      //   } catch (err) {
+      //      document.getElementById('content').innerText = err.message;
+      //     return;
+      //   }
 
-        const events = response.result.items;
-        if (!events || events.length == 0) {
-          document.getElementById('content').innerText = 'No events found.';
-          return;
-        }
+        // const events = response.result.items;
+        // if (!events || events.length == 0) {
+        //   document.getElementById('content').innerText = 'No events found.';
+        //   return;
+        // }
         // Flatten to string to display
-        const output = events.reduce(
-            (str, event) => `${str}${event.summary} (${event.start.dateTime || event.start.date})\n`,
-            'Events:\n');
-        document.getElementById('content').innerText = output;
-      }
+      //   const output = events.reduce(
+      //       (str, event) => `${str}${event.summary} (${event.start.dateTime || event.start.date})\n`,
+      //       'Events:\n');
+      //   document.getElementById('content').innerText = output;
+      // }
 
 
 
