@@ -1,0 +1,175 @@
+:root {
+    --orange: #f8b195;
+    --red: #f67280;
+    --pink: #c06c84;
+    --purple: #6c5b7b;
+    --blue: #355c7d;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    position: absolute;
+    left: -10%;
+    width: 120%;
+    height: 100vh;
+    background-image: url("../assets/images/sky.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container #scene .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.container .layer img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+}
+
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--orange);
+}
+
+.wrapper {
+    border-radius: 10px;
+    width: 450px;
+    background: #f8b195(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.wrapper header {
+    display: flex;
+    align-items: center;
+    padding: 25px 30px 10px;
+    justify-content: space-between;
+}
+
+#header {
+    text-align: center;
+    display: block;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.calendar {
+    padding: 20px;
+
+}
+
+.calendar ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.calendar ul li {
+    position: relative;
+    width: calc(100% / 7);
+}
+
+
+.calendar .weeks li {
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.calendar .days {
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.calendar .days li {
+    cursor: pointer;
+    margin-top: 30px;
+    z-index: 1;
+}
+
+.days li.inactive {
+    color: #aaa;
+}
+
+.calendar .days li::before {
+    position: absolute;
+    position: absolute;
+    content: " ";
+    height: 40px;
+    width: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) border-radius: 50%;
+    z-index:-1;
+}
+
+
+.days li:hover::before {
+    background: #9b59b6;
+}
+
+.days li.active::before header .current-date {
+    font-size: 1.45rem;
+    font-weight: 500;
+}
+
+header .icons {
+    display: flex;
+    flex-direction: row;
+}
+
+header .icons span {
+    height: 38px;
+    width: 38px;
+    margin: 0 1px;
+    text-align: center;
+    cursor: pointer;
+    text-align: 30px;
+    line-height: 38px;
+    border-radius: 50%;
+    color: #878787;
+    font-size: 1.9rem;
+
+}
+
+header .icons span:hover {
+    background: #f2f2f2;
+}
+
+header .icons span:last-child {
+    margin-right: -10px;
+}
