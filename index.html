@@ -21,8 +21,8 @@
 
 <body>
  
-  <section>
-    <div class="container">
+  <main>
+    <div class="container-bg">
       
       <div id="scene">
         <div class="layer" data-depth-x="-0.5" data-depth-y="0.25"><img src="assets/images/sun.png"></div>
@@ -33,12 +33,17 @@
       </div>
     </div>
 
+    <div class="container">
+        <h1> Select a date for your event! </h1>
+      </div>
+    <br/>
     <div class="wrapper">
+
       <header>
          <!--Add buttons to initiate auth sequence and sign out-->
         <button id="authorize_button" onclick="handleAuthClick()">Signing your account</button>
        <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
-        <h1 id="header"> Select a date for your event! </h1>
+
         <p class="current-date">Month Year</p>
         <!-- <div class="icons">
           <span class="material-symbols-rounded"> < </span>
@@ -94,8 +99,12 @@
         </ul>
       </div>
     </div>
+      <br/>
+    <div class="container">
+      <h1> Submit </h1>
+    </div>
 
-  </section>
+  </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
   <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
   <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
