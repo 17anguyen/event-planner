@@ -2,7 +2,8 @@
     --orange: #f8b195;
     --red: #f67280;
     --pink: #c06c84;
-    --purple: #6c5b7b;
+    --purple-transparent: #85759459;
+    --purple: #7d5e97;
     --blue: #355c7d;
 }
 
@@ -13,6 +14,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    flex-wrap: wrap;
 }
 
 section {
@@ -28,10 +30,10 @@ section {
 .container-bg {
     position: absolute;
     left: -10%;
-    width: 120%;
+    width: 150%;
     height: 100vh;
     background-image: url("../assets/images/sky.png");
-    background-attachment: fixed;
+    background-attachment:fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -53,6 +55,32 @@ section {
     height: 100%;
 }
 
+.submit {
+    display: block;
+    position: relative;
+    align-items: center;
+    font-size: 20px;
+    backdrop-filter: blur(10px);
+    background-color: var(--orange);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 8px;
+    color: var(--blue);
+    font-weight: bold
+}
+
+.submit:hover {
+    background-color: var(--pink);
+    color: #fff;
+}
+
+button h1 {
+    padding: 20px;
+    font-size: 30px;
+    color: var(--blue);
+    text-align: center;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -61,8 +89,6 @@ main {
     min-height: 100vh;
     background-color: var(--orange);
 }
-
-
 
 .wrapper {
     border-radius: 10px;
@@ -92,6 +118,7 @@ main {
     display: block
 }
 
+
 .container h1 {
     padding: 20px;
     font-size: 30px;
@@ -101,7 +128,6 @@ main {
 
 .calendar {
     padding: 20px;
-
 }
 
 .calendar ul {
@@ -118,8 +144,8 @@ main {
 
 
 .calendar .weeks li {
-    font-weight: 500;
-    margin-bottom: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .calendar .days {
@@ -142,22 +168,23 @@ main {
     content: " ";
     height: 40px;
     width: 40px;
-    top: -20%;
-    left: 15%;
+    top: 40%;
+    left: 50%;
     transform: translate(-50%, -50%); 
     border-radius: 50%;
     z-index:-1;
 }
 
+.current-date{
+    font-size: 20px;
+    font-weight: bolder;
+    color: var(--purple)
+}
 
 .days li:hover::before {
-    background: var(--purple);
+    background: var(--purple-transparent);
 }
 
-.days li.active::before header .current-date {
-    font-size: 1.45rem;
-    font-weight: 500;
-}
 
 header .icons {
     display: flex;
