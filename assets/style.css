@@ -87,16 +87,18 @@ main {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: var(--orange);
+    background-color: #C06C84;
 }
 
 .wrapper {
+    /* background: #fff; */
     border-radius: 10px;
     width: 450px;
-    background: #f8b195(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
+    /* -webkit-backdrop-filter: blur(5px); */
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -171,7 +173,7 @@ main {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%); 
-    border-radius: 50%;
+    /* border-radius: 50%; */
     z-index:-1;
 }
 
