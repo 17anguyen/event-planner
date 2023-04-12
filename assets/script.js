@@ -145,8 +145,8 @@
   var parallax = new Parallax(scene);
   //setting up the current month
   var currentMonth = dayjs().format('MMMM YYYY');
-  var daysInCurrentMonth = dayjs('May 2023').daysInMonth();
-  var startofCurrentMonth = dayjs('May 2023').startOf('W').$d;
+  var daysInCurrentMonth = dayjs(currentMonth).daysInMonth();
+  var startofCurrentMonth = dayjs(currentMonth).startOf('W').$d;
   var firstDayofMonth = 'day'+ dayjs(startofCurrentMonth).format('d');
   var allLiEl = document.querySelector('.days').children;
   var currentMonthEl = document.querySelector('.current-date');
