@@ -186,3 +186,101 @@ function createEventGoogle(){
   
   }
   btnsubmitEl.addEventListener('click', saveInfoEvent)
+
+  // alivia's code starts
+// Get the input and button elements
+const taskInput = document.querySelector('.task-input');
+const addButton = document.querySelector('#add-button');
+const eventForm = document.querySelector('#eventForm');
+const eventInput = document.querySelector('#eventInput');
+const events = document.querySelectorAll('.event');
+
+// Load events from local storage
+for (let i = 0; i < localStorage.length; i++) {
+  const key = localStorage.key(i);
+  if (key.startsWith('event')) {
+    const value = localStorage.getItem(key);
+    const index = key.split('-')[1];
+    events[index].textContent = value;
+  }
+}
+
+// Add new event to the planner and local storage
+function addEvent(e) {
+  e.preventDefault();
+  const text = eventInput.value.trim();
+  if (text.length === 0) return;
+  for (let i = 0; i < events.length; i++) {
+    if (events[i].textContent === '') {
+      events[i].textContent = text;
+      localStorage.setItem
+    }}}
+
+// Load tasks from local storage
+loadTasks();
+
+// Add event listener to button
+addButton.addEventListener('click', addTask);
+
+// Add event listener to input field for pressing enter key
+taskInput.addEventListener('keypress', function(e) {
+	if (e.key === 'Enter') {
+		addTask();
+	}
+});
+
+function addTask() {
+	// Get the ul element and create a new li element
+	const taskList = document.querySelector('#list');
+	const newTask = document.createElement('li');
+
+	// Create a new checkbox and input field
+	const checkbox = document.createElement('input');
+	checkbox.type = 'checkbox';
+	checkbox.addEventListener('click', saveTasks);
+
+	const taskInput = document.createElement('input');
+	taskInput.type = 'text';
+	taskInput.classList.add('task-input');
+	taskInput.addEventListener('input', saveTasks);
+
+	// Append the checkbox and input field to the new li element
+	newTask.appendChild(checkbox);
+	newTask.appendChild(taskInput);
+
+	// Append the new li element to the ul element
+	taskList.appendChild(newTask);
+
+	// Clear the input field
+	taskInput.value = '';
+
+	// Set focus on the input field
+	taskInput.focus();
+}
+
+function saveTasks() {
+	// Get all the input fields and checkboxes
+	const taskInputs = document.querySelectorAll('.task-input');
+	const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+	// Save each task and its checked status to local storage
+	let tasks = [];
+	for (let i = 0; i < taskInputs.length; i++) {
+		const task = taskInputs[i].value.trim();
+		const checked = checkboxes[i].checked;
+		if (task !== '') {
+			tasks.push({ task: task, checked: checked });
+		}
+	}
+	localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function loadTasks() {
+	// Load tasks from local storage and create the necessary elements
+	let tasks = JSON.parse(localStorage.getItem('tasks'));
+	if (tasks !== null) {
+		const taskList = document
+  }
+}
+
+// alivias code ends
