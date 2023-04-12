@@ -151,25 +151,38 @@
   var allLiEl = document.querySelector('.days').children;
   var currentMonthEl = document.querySelector('.current-date');
   currentMonthEl.textContent = currentMonth;
+  var dateSelected = '';
+  var btnSubmit = document.querySelector('.submit')
+
   
 
   function loadDaystoCalendar(){
     var daysTotal = parseInt(daysInCurrentMonth) + parseInt(dayjs(startofCurrentMonth).format('d'));
-   
       for(var i=0;i < daysTotal; i++ ){
-      
         if(allLiEl[i].id && allLiEl[i].id == firstDayofMonth){
+
           var x = 1
+          var date = x +' '+ currentMonth
+          var newAEl = document.createElement('a');
           allLiEl[i].textContent = x;
+          allLiEl[i].setAttribute('data-set',date);
+          allLiEl[i].addEventListener('click',saveDateValue);
           allLiEl[i].classList.remove('inactive');
           allLiEl[i].classList.add('active');
+          // newAEl.setAttribute("href", "./form.html")
+          allLiEl[i].appendChild(newAEl)
 
           x+=1;
 
         }else if(x > 1){
+
+          date = x +' '+ currentMonth
           allLiEl[i].textContent = x;
+          allLiEl[i].setAttribute('data-set',date);
+          allLiEl[i].addEventListener('click',saveDateValue);
           allLiEl[i].classList.remove('inactive');
-          allLiEl[i].classList.add('active')
+          allLiEl[i].classList.add('active');
+
           x+=1
 
         }
@@ -177,6 +190,40 @@
       }
      
   }
+  function saveDateValue(event){
 
+    dateSelected= event.target.getAttribute("data-set");
+    console.log()
+  }
+//add event to google calendar 
+  function createEventGoogle(){
+
+    const event = {
+      'summary': 'New fake event',
+      'location': '800 Howard St., San Francisco, CA 94103',
+      'description': 'A chance to hear more about Google\'s developer products.',
+      'start': {
+        'dateTime': '2023-04-28T09:00:00-07:00',
+        'timeZone': 'America/Los_Angeles'
+      },
+      'end': {
+        'dateTime': '2023-04-30T17:00:00-07:00',
+        'timeZone': 'America/Los_Angeles'
+      },
+      'colorId':3,
+    };
+
+    const request = gapi.client.calendar.events.insert({
+      'calendarId': 'primary',
+      'resource': event
+    });
+    
+    request.execute(function(event) {
+      appendPre('Event created: ' + event.htmlLink);
+    });
+    
+  }
+
+// btnSubmit.addEventListener('click',createEventGoogle)
   loadDaystoCalendar()
 
