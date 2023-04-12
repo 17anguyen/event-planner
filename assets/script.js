@@ -151,11 +151,10 @@
   var allLiEl = document.querySelector('.days').children;
   var currentMonthEl = document.querySelector('.current-date');
   currentMonthEl.textContent = currentMonth;
-  console.log(allLiEl)
+  
 
   function loadDaystoCalendar(){
     var daysTotal = parseInt(daysInCurrentMonth) + parseInt(dayjs(startofCurrentMonth).format('d'));
-        console.log(daysTotal)
    
       for(var i=0;i < daysTotal; i++ ){
       
