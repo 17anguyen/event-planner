@@ -140,9 +140,44 @@
 
 //------------------------------------------------------------page load 
 
-  var currentMonth = dayjs().format('MMMM YYYY');
-  console.log(currentMonth)
-  var currentMonthEl = document.querySelector('.current-date')
+//background movement
   var scene = document.getElementById('scene');
   var parallax = new Parallax(scene);
+  //setting up the current month
+  var currentMonth = dayjs().format('MMMM YYYY');
+  var daysInCurrentMonth = dayjs('May 2023').daysInMonth();
+  var startofCurrentMonth = dayjs('May 2023').startOf('W').$d;
+  var firstDayofMonth = 'day'+ dayjs(startofCurrentMonth).format('d');
+  var allLiEl = document.querySelector('.days').children;
+  var currentMonthEl = document.querySelector('.current-date');
+  currentMonthEl.textContent = currentMonth;
+  console.log(allLiEl)
+
+  function loadDaystoCalendar(){
+    var daysTotal = parseInt(daysInCurrentMonth) + parseInt(dayjs(startofCurrentMonth).format('d'));
+        console.log(daysTotal)
+   
+      for(var i=0;i < daysTotal; i++ ){
+      
+        if(allLiEl[i].id && allLiEl[i].id == firstDayofMonth){
+          var x = 1
+          allLiEl[i].textContent = x;
+          allLiEl[i].classList.remove('inactive');
+          allLiEl[i].classList.add('active');
+
+          x+=1;
+
+        }else if(x > 1){
+          allLiEl[i].textContent = x;
+          allLiEl[i].classList.remove('inactive');
+          allLiEl[i].classList.add('active')
+          x+=1
+
+        }
+        
+      }
+     
+  }
+
+  loadDaystoCalendar()
 
