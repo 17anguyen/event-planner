@@ -189,6 +189,7 @@ const events = document.querySelectorAll('.events');
 const taskUpdateBtn = document.querySelector('#task-submit-btn');
 const eventBtnEl = document.querySelector('#add-event');
 const attendeeLisEl = document.querySelector('#attendees');
+var eventAdded = false ;
 
 
 
@@ -234,6 +235,11 @@ function saveInfoEvent(event) {
     countryInput.value= ' ';
 
   }
+  if(eventAdded){
+    var eventAddedEl = document.getElementById("event-added-p");
+    eventAddedEl.textContent = "Event added to your calendar"
+    eventAdded = false;
+  }
 
 }
 
@@ -265,6 +271,7 @@ function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,attendeeList,locati
     appendPre('Event created: ' + event.summary);
   });
 
+  eventAdded = true;
 }
 
 }
@@ -296,13 +303,6 @@ function loadTasks(){
   }
 
 }
-// function loadTasks() {
-//   // Load tasks from local storage and create the necessary elements
-//   let tasks = JSON.parse(localStorage.getItem('tasks'));
-//   if (tasks !== null) {
-//     const taskList = document
-//   }
-// }
 
 // Add new event to the planner and local storage
 function addEvent(e) {
@@ -379,8 +379,3 @@ function saveTasks() {
 
 // Load tasks from local storage
 loadTasks();
-
-
-// $('#textarea').val('New Text');
-// M.textareaAutoResize($('#textarea'));
-// alivias code ends
