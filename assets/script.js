@@ -12,6 +12,10 @@
   currentMonthEl.textContent = currentMonth;
   var dateSelected = '';
   var btnSubmit = document.querySelector('.submit');
+  var selectStartTime = document.querySelector('start-time-select');
+  var selectEndTime = document.querySelector('end-time-select');
+ 
+  // output = selectElement.value;
 
 
   

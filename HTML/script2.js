@@ -104,11 +104,11 @@
 // Get the input and button elements
 const taskInput = document.querySelector('.task-input');
 const addButton = document.querySelector('#add-button');
-const eventForm = document.querySelector('#eventForm');
-const eventInput = document.querySelector('#eventInput');
-const events = document.querySelectorAll('.event');
+// const eventForm = document.querySelector('#eventForm');
+const eventInput = document.querySelector('#event-name');
+const events = document.querySelectorAll('.events');
 const eventsButton = document.querySelector('.events-submit');
-const eventBtnEl = document.querySelector('#add-event-btn');
+const eventBtnEl = document.querySelector('#add-event');
 const attendeeLisEl = document.querySelector('#attendees')
 
 
@@ -169,7 +169,7 @@ function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,attendeeList){
       
     }
     
-    createEventGoogle(eventName,dateParseStart,dateParseEnd,finalAttendeeList);
+    //createEventGoogle(eventName,dateParseStart,dateParseEnd,finalAttendeeList);
 
   }
   
@@ -280,6 +280,6 @@ function loadTasks() {
 
 
 
-$('#textarea').val('New Text');
-M.textareaAutoResize($('#textarea'));
+// $('#textarea').val('New Text');
+// M.textareaAutoResize($('#textarea'));
 // alivias code ends
