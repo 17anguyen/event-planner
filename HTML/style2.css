@@ -63,9 +63,7 @@ flex-wrap: wrap;
 }
 
 #map {
-
-  height: 550px;
-  width: 650px;
+padding-top: 20px;
 }
 
 #add-event button {
