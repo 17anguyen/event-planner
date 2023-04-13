@@ -182,11 +182,11 @@ function initMap() {
 
 //------------------ Get the input and button elements
 const taskInput = document.querySelector('.task-input');
-const addButton = document.querySelector('#add-button');
+const addCheckTaskBtn = document.querySelector('#add-button');
 // const eventForm = document.querySelector('#eventForm');
 const eventInput = document.querySelector('#event-name');
 const events = document.querySelectorAll('.events');
-const eventsButton = document.querySelector('.events-submit');
+const taskUpdateBtn = document.querySelector('#task-submit-btn');
 const eventBtnEl = document.querySelector('#add-event');
 const attendeeLisEl = document.querySelector('#attendees');
 
@@ -281,18 +281,28 @@ function backToMainCalendar() {
 
 
 
-// alivia's code starts
+// Tasks save to local storage
 
 
-// Load events from local storage
-for (let i = 0; i < localStorage.length; i++) {
-  const key = localStorage.key(i);
-  if (key.startsWith('event')) {
-    const value = localStorage.getItem(key);
-    const index = key.split('-')[1];
-    events[index].textContent = value;
+// Load tasks from local storage
+function loadTasks(){
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key.startsWith('event')) {
+      const value = localStorage.getItem(key);
+      const index = key.split('-')[1];
+      events[index].textContent = value;
+    }
   }
+
 }
+// function loadTasks() {
+//   // Load tasks from local storage and create the necessary elements
+//   let tasks = JSON.parse(localStorage.getItem('tasks'));
+//   if (tasks !== null) {
+//     const taskList = document
+//   }
+// }
 
 // Add new event to the planner and local storage
 function addEvent(e) {
@@ -307,11 +317,10 @@ function addEvent(e) {
   }
 }
 
-// Load tasks from local storage
-loadTasks();
+
 
 // Add event listener to button
-addButton.addEventListener('click', addTask);
+addCheckTaskBtn.addEventListener('click', addTask);
 
 // Add event listener to input field for pressing enter key
 taskInput.addEventListener('keypress', function (e) {
@@ -366,14 +375,10 @@ function saveTasks() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-function loadTasks() {
-  // Load tasks from local storage and create the necessary elements
-  let tasks = JSON.parse(localStorage.getItem('tasks'));
-  if (tasks !== null) {
-    const taskList = document
-  }
-}
 
+
+// Load tasks from local storage
+loadTasks();
 
 
 // $('#textarea').val('New Text');
