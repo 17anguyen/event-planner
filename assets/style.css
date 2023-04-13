@@ -168,12 +168,9 @@ main {
     background: var(--purple-transparent);
 }
 
-.days li:active::before {
-    background: var(--purple-transparent);
-}
 
 .selected {
-    background: var(--purple-transparent);
+    color: #fff;
 }
 
 header .icons {
