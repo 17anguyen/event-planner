@@ -104,18 +104,20 @@
 // Get the input and button elements
 const taskInput = document.querySelector('.task-input');
 const addButton = document.querySelector('#add-button');
-// const eventForm = document.querySelector('#eventForm');
+const eventForm = document.querySelector('#eventForm');
 const eventInput = document.querySelector('#eventInput');
 const events = document.querySelectorAll('.event');
 const eventsButton = document.querySelector('.events-submit');
+const eventBtnEl = document.querySelector('#add-event-btn');
+const attendeeLisEl = document.querySelector('#attendees')
+
 
 //add event to google calendar 
-function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,){
+function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,attendeeList){
 
     const event = {
       'summary': nameEvent,
       'location': '800 Howard St., San Francisco, CA 94103',
-      'description': 'A chance to hear more about Google\'s developer products.',
       'start': {
         'dateTime': dateTStart,
         'timeZone': '',
@@ -124,10 +126,7 @@ function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,){
         'dateTime': dateTimeEnd,
         'timeZone': '',
       },
-      'attendees': [
-        {'displayName': 'name'},
-        {'displayName': 'sbrin@example.com'}
-      ],
+      'attendees': attendeeList,
 
       'colorId':3,
     };
@@ -138,32 +137,55 @@ function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,){
     });
     
     request.execute(function(event) {
-      appendPre('Event created: ' + event.summary);
+       appendPre('Event created: ' + event.summary);
     });
     
   }
+
+
 
   function saveInfoEvent(event){
     event.preventDefault()
   if(localStorage !== null){
     var selecteDateUser = localStorage.getItem("dateselected");
-    //var selectedHour = localStorage.getItem("hourselected")
-    var starthour = "14"
+    //var selectedEndTime = localStorage.getItem("endTime", endTime);
+    //var selectedStartTime = localStorage.getItem("startTime", startTime);
+    var starthour = "15"
     var endhour = parseInt(starthour)+ 01;
-    var dateParsestart = dayjs(selecteDateUser).format('YYYY-MM-DDT'+starthour+':mm:ssZ') ;
-    var dateParseend = dayjs(selecteDateUser).format('YYYY-MM-DDT'+endhour+':mm:ssZ')
+    var dateParseStart = dayjs(selecteDateUser).format('YYYY-MM-DDT'+starthour+':mm:ssZ') ;
+    var dateParseEnd = dayjs(selecteDateUser).format('YYYY-MM-DDT'+endhour+':mm:ssZ')
     var eventName = eventInput.value;
 
-    createEventGoogle(eventName,dateParsestart,dateParseend);
-
+    //getting attendee list to calendar format
+    var listAt = attendeeLisEl.value;
+    var attendeesList = listAt.split(',');
+    var finalAttendeeList = [];
+    
+    for(i=0; i < attendeesList.length; i++){
+      var attendeePerson = {};
+      attendeePerson['email']= attendeesList[i].trim();
+      console.log(attendeesList[i]);
+      finalAttendeeList.push(attendeePerson);
+      
+    }
+    
+    createEventGoogle(eventName,dateParseStart,dateParseEnd,finalAttendeeList);
 
   }
   
   }
+
+//bottom add event 
+  eventBtnEl.addEventListener('click', saveInfoEvent)
+
+
+
   function backToMainCalendar(){
     window.location.href = "../index.html";
 
   }
+
+
 
   // alivia's code starts
 

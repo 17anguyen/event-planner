@@ -29,7 +29,7 @@
           allLiEl[i].addEventListener('click',saveDateValue);
           allLiEl[i].classList.remove('inactive');
           allLiEl[i].classList.add('active');
-          // newAEl.setAttribute("href", "./form.html")
+         
           allLiEl[i].appendChild(newAEl)
 
           x+=1;
@@ -53,8 +53,12 @@
   function saveDateValue(event){
 
     dateSelected= event.target.getAttribute("data-set");
-    // window.location.href = "HTML/details.html";
     localStorage.setItem("dateselected", dateSelected);
+  }
+  function clickToAnotherPage(){
+    //localStorage.setItem("endTime", endTime);
+    //localStorage.setItem("startTime", startTime);
+    window.location.href = "HTML/details.html";
   }
 
 
