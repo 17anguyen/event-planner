@@ -114,7 +114,7 @@ const attendeeLisEl = document.querySelector('#attendees')
 
 //add event to google calendar 
 function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,attendeeList){
-
+  if (dateTStart && nameEvent){
     const event = {
       'summary': nameEvent,
       'location': '800 Howard St., San Francisco, CA 94103',
@@ -142,21 +142,23 @@ function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,attendeeList){
     
   }
 
+  }
+  
+    
+
 
 
   function saveInfoEvent(event){
     event.preventDefault()
   if(localStorage !== null){
     var selecteDateUser = localStorage.getItem("dateselected");
-    //var selectedEndTime = localStorage.getItem("endTime", endTime);
-    //var selectedStartTime = localStorage.getItem("startTime", startTime);
-    var starthour = "15"
-    var endhour = parseInt(starthour)+ 01;
-    var dateParseStart = dayjs(selecteDateUser).format('YYYY-MM-DDT'+starthour+':mm:ssZ') ;
-    var dateParseEnd = dayjs(selecteDateUser).format('YYYY-MM-DDT'+endhour+':mm:ssZ')
+    var selectedEndTime = localStorage.getItem("endTime");
+    var selectedStartTime = localStorage.getItem("startTime");
+    var dateParseStart = dayjs(selecteDateUser).format('YYYY-MM-DDT'+selectedStartTime+':ssZ') ;
+    var dateParseEnd = dayjs(selecteDateUser).format('YYYY-MM-DDT'+selectedEndTime+':ssZ')
     var eventName = eventInput.value;
 
-    //getting attendee list to calendar format
+    //getting attendee list to calendar format standards and checking if more than one
     var listAt = attendeeLisEl.value;
     var attendeesList = listAt.split(',');
     var finalAttendeeList = [];
@@ -164,7 +166,6 @@ function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,attendeeList){
     for(i=0; i < attendeesList.length; i++){
       var attendeePerson = {};
       attendeePerson['email']= attendeesList[i].trim();
-      console.log(attendeesList[i]);
       finalAttendeeList.push(attendeePerson);
       
     }
