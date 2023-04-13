@@ -6,7 +6,8 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Event Planner Landing</title>
-  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="./style2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script
       src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
       integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
@@ -18,33 +19,14 @@
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
+    
 </head>
 
 
-<body id="details-page">
+<body>
  
   <main>
-        <!--Add buttons to initiate auth sequence and sign out-->
-        <div>
-          <button id="authorize_button" onclick="handleAuthClick()">Sign Into Your Account</button>
-       <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
-       <input type="text" name="" id="eventName" placeholder="eventName">
-       <button id="formsubmit">submit</button>
-        </div>
-    <div>
-      <div id="sceneDetails1">
-        <div class="layer" data-depth-x="-0.5" data-depth-y="0.25"><img src="../assets/images/sun.png"></div>
-        <div class="layer" data-depth-x="0.30"><img src="../assets/images/clouds.png"></div>
-        <div class="layer" data-depth-x="0.25"><img src="../assets/images/water.png"></div>
-        <div class="layer" data-depth-x="-0.25"><img src="../assets/images/rocks.png"></div>
-        <!-- <div class="layer" data-depth-x="-0.25"><img src="assets/images/sand.png"></div>  -->
-      </div>
-    </div>
-
-
-
-
-    <div class="container">
+    <div class="container">s
   
       <div class="column left">
         <h2>Left Column</h2>
@@ -122,7 +104,7 @@
   </body>
 
   </main>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="./script2.js"></script>
   <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
   <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
