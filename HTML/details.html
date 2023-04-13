@@ -32,7 +32,7 @@
     <div class="container">
 
       <div class="column left">
-        <h2>Left Column</h2>
+        <h2>Big Picture Management</h2>
         <!-- <div class="row"> -->
         <form class="col s12">
 
@@ -59,16 +59,15 @@
           </div>
 
 
-        <button>Add Event</button>
+        <button id="add-event" class="waves-effect waves-purple btn-large" >Add Event</button>
 
       </div>
 
 
       <div class="column right">
-        <h2>Right Column</h2>
+        <h2>Plan the Details!</h2>
 
         <div class="container-time">
-          <h1>Hourly Segmented Planner</h1>
           <div class="planner">
             <div class="hours">
               <div class="hour">9am</div>
@@ -82,28 +81,21 @@
               <div class="hour">5pm</div>
             </div>
             <div class="events">
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <!-- <div class="event"></div> 
-              <div class="event"></div>
-              <div class="event"></div>
-              <div class="event"></div>
-              <div class="event"></div>
-              <div class="event"></div>
-              <div class="event"></div>  -->
+              <textarea placeholder="Add something to your schedule!" id="textarea1" class="materialize-textarea"></textarea>
+              <textarea  id="textarea1" class="materialize-textarea"></textarea>
+              <textarea  id="textarea1" class="materialize-textarea"></textarea>
+              <textarea  id="textarea1" class="materialize-textarea"></textarea>
+              <textarea  id="textarea1" class="materialize-textarea"></textarea>
+              <textarea  id="textarea1" class="materialize-textarea"></textarea>
+              <textarea  id="textarea1" class="materialize-textarea"></textarea>
+              <textarea  id="textarea1" class="materialize-textarea"></textarea>
+              <textarea  id="textarea1" class="materialize-textarea"></textarea>
+              <button class="waves-effect waves-purple btn-large"class="events-submit">Update</button>
             </div>
           </div>
         </div>
 
         <br />
-        <section>
           <form action="#">
             <label>
               <input type="checkbox" />
@@ -112,10 +104,9 @@
                   <input placeholder="Add a Task" type="text" class="task-input">
                 </li>
               </ul>
-              <input type="button" value="Add Task" id="add-button">
+              <input class="waves-effect waves-purple btn-large"type="button" value="Add Task" id="add-button">
             </label>
           </form>
-        </section>
       </div>
 
     </div>
