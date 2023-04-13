@@ -12,10 +12,10 @@
   currentMonthEl.textContent = currentMonth;
   var dateSelected = '';
   var btnSubmit = document.querySelector('.submit');
-  var selectStartTime = document.querySelector('start-time-select');
-  var selectEndTime = document.querySelector('end-time-select');
+  var selectStartTimeEl = document.querySelector('#start-time-select');
+  var selectEndTimeEl = document.querySelector('#end-time-select');
  
-  // output = selectElement.value;
+
 
 
   
@@ -55,20 +55,29 @@
      
   }
   function saveDateValue(event){
-
     dateSelected= event.target.getAttribute("data-set");
     localStorage.setItem("dateselected", dateSelected);
   }
   function clickToAnotherPage(){
-    //localStorage.setItem("endTime", endTime);
-    //localStorage.setItem("startTime", startTime);
+    console.log(selectStartTimeEl);
+    selectedStartTime = selectStartTimeEl.value;
+    selectedEndTime = selectEndTimeEl.value;
+    console.log(selectedStartTime);
+    console.log(selectedEndTime);
+    localStorage.setItem("startTime", selectedStartTime);
+    localStorage.setItem("endTime", selectedEndTime);
     window.location.href = "HTML/details.html";
   }
 
-
+//loading calendar numbers
   loadDaystoCalendar()
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, options);
-  });
+
+  //sbumit btn to the next page
+  btnSubmit.addEventListener('click',clickToAnotherPage)
+
+
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   var elems = document.querySelectorAll('select');
+  //   var instances = M.FormSelect.init(elems, options);
+  // });
 
