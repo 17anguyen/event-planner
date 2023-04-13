@@ -3,84 +3,84 @@
 
 <head>
   <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Event Planner Landing</title>
   <link rel="stylesheet" href="./style2.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <script
-      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-      crossorigin="anonymous"
-    ></script>
-    
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.min.js"
-      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-      crossorigin="anonymous"
-    ></script>
-    
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
 </head>
 
 
 <body>
- 
+
   <main>
-        <!--Add buttons to initiate auth sequence and sign out-->
-        <div>
-          <button id="authorize_button" onclick="handleAuthClick()">Sign Into Your Account</button>
-       <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
-       <input type="text" name="" id="eventName" placeholder="eventName">
-
-       <button id="formsubmit">Add Event</button>
-       <button id="closeEventTab">Done</button>
-        </div>
-    <div>
-      <!--  <div id="sceneDetails1">
-        <div class="layer" data-depth-x="-0.5" data-depth-y="0.25"><img src="../assets/images/sun.png"></div>
-        <div class="layer" data-depth-x="0.30"><img src="../assets/images/clouds.png"></div>
-        <div class="layer" data-depth-x="0.25"><img src="../assets/images/water.png"></div>
-        <div class="layer" data-depth-x="-0.25"><img src="../assets/images/rocks.png"></div>
-         <div class="layer" data-depth-x="-0.25"><img src="assets/images/sand.png"></div> 
-      </div>  -->
-    </div>
 
 
+    <div class="row">
 
 
-    <div class="container">
-  
-      <div class="column left">
-        <h2>Left Column</h2>
+      <div class="s12 m6 col">
+        <h2> Big Picture Management</h2>
         <!-- <div class="row"> -->
-        <form class="col s12">
-  
+        <form>
+
           <!-- <div class="row"> -->
-          <div class="input-field col s12">
-            <input placeholder="Placeholder" id="event-name" type="text" class="validate">
+          <div class="input-field">
+            <input placeholder="Event Title" id="event-name" type="text" class="validate">
             <label for="event-name">Event Title</label>
           </div>
-  
-          <div class="input-field col s12">
-            <input placeholder="Placeholder" id="Location" type="text" class="validate">
-            <label for="Location">Search Location</label>
-          </div>
-  
-          <div class="input-field col s12">
-            <input placeholder="Placeholder" id="attendees" type="text" class="validate">
+
+          <div class="input-field">
+            <input placeholder="Separate emails by comas!" id="attendees" type="text" class="validate">
             <label for="attendees">Attendees</label>
           </div>
+
+
         </form>
-        <button>Add Event</button>
-  
+
+        <div>
+          <div class="card-container">
+            <div class="panel">
+              <div>
+                <img class="sb-title-icon"
+                  src="https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg" alt="">
+                <span class="sb-title">Address Selection</span>
+              </div>
+              <input type="text" placeholder="Address" id="location-input" />
+              <input type="text" placeholder="Apt, Suite, etc (optional)" />
+              <input type="text" placeholder="City" id="locality-input" />
+              <div class="half-input-container">
+                <input type="text" class="half-input" placeholder="State/Province"
+                  id="administrative_area_level_1-input" />
+                <input type="text" class="half-input" placeholder="Zip/Postal code" id="postal_code-input" />
+              </div>
+              <input type="text" placeholder="Country" id="country-input" />
+            </div>
+            <div class="map" id="gmp-map"></div>
+          </div>
+        </div>
+
+
+
+        <button id="add-event" class="waves-effect waves-purple btn-large">Add Event</button>
+        <!--Add buttons to initiate auth sequence and sign out-->
+        <button class="waves-effect waves-purple btn-large" id="authorize_button" onclick="handleAuthClick()">Sign Into
+          Your Account</button>
+        <button class="waves-effect waves-purple btn-large" id="signout_button" onclick="handleSignoutClick()">Sign
+          Out</button>
       </div>
-  
-  
-      <div class="column right">
-        <h2>Right Column</h2>
-  
+
+
+      <div class="s12 m6 col">
+        <h2>Plan the Details!</h2>
+
         <div class="container-time">
-          <h1>Hourly Segmented Planner</h1>
           <div class="planner">
             <div class="hours">
               <div class="hour">9am</div>
@@ -94,6 +94,8 @@
               <div class="hour">5pm</div>
             </div>
             <div class="events">
+              <textarea placeholder="Add something to your schedule!" id="textarea1"
+                class="materialize-textarea"></textarea>
               <textarea id="textarea1" class="materialize-textarea"></textarea>
               <textarea id="textarea1" class="materialize-textarea"></textarea>
               <textarea id="textarea1" class="materialize-textarea"></textarea>
@@ -102,14 +104,7 @@
               <textarea id="textarea1" class="materialize-textarea"></textarea>
               <textarea id="textarea1" class="materialize-textarea"></textarea>
               <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <!-- <div class="event"></div> 
-              <div class="event"></div>
-              <div class="event"></div>
-              <div class="event"></div>
-              <div class="event"></div>
-              <div class="event"></div>
-              <div class="event"></div>  -->
+              <button class="waves-effect waves-purple btn-large" class="events-submit">Update</button>
             </div>
           </div>
         </div>
@@ -121,22 +116,23 @@
                 <input placeholder="Add a Task" type="text" class="task-input">
               </li>
             </ul>
-            <input type="button" value="Add Task" id="add-button">
+            <input class="waves-effect waves-purple btn-large" type="button" value="Add Task" id="add-button">
           </label>
         </form>
-  </section>
       </div>
-  
-    </div>
-  </body>
 
-  </main>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="./script2.js"></script>
-  <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
-  <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>  
-  
+    </div>
+</body>
+
+</main>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0Ak_HeBNj498WgcycyKWWEs_koGOrYiI&libraries=places&callback=initMap&solution_channel=GMP_QB_addressselection_v1_cAB"
+  async defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./script2.js"></script>
+<script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+<script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </body>
 
 </html>

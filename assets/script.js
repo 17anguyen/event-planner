@@ -12,6 +12,11 @@
   currentMonthEl.textContent = currentMonth;
   var dateSelected = '';
   var btnSubmit = document.querySelector('.submit');
+  var selectStartTimeEl = document.querySelector('#start-time-select');
+  var selectEndTimeEl = document.querySelector('#end-time-select');
+ 
+  var selectedDay;
+
 
 
   
@@ -29,7 +34,7 @@
           allLiEl[i].addEventListener('click',saveDateValue);
           allLiEl[i].classList.remove('inactive');
           allLiEl[i].classList.add('active');
-          // newAEl.setAttribute("href", "./form.html")
+         
           allLiEl[i].appendChild(newAEl)
 
           x+=1;
@@ -51,12 +56,36 @@
      
   }
   function saveDateValue(event){
-
     dateSelected= event.target.getAttribute("data-set");
-    window.location.href = "HTML/details.html";
+    if (selectedDay) {
+      selectedDay.classList.remove("selected")
+    }
+    event.target.classList.add("selected");
+    selectedDay = event.target
     localStorage.setItem("dateselected", dateSelected);
+    
   }
 
+  function clickToAnotherPage(){
+    console.log(selectStartTimeEl);
+    selectedStartTime = selectStartTimeEl.value;
+    selectedEndTime = selectEndTimeEl.value;
+    console.log(selectedStartTime);
+    console.log(selectedEndTime);
+    localStorage.setItem("startTime", selectedStartTime);
+    localStorage.setItem("endTime", selectedEndTime);
+    window.location.href = "HTML/details.html";
+  }
 
+//loading calendar numbers
   loadDaystoCalendar()
+
+  //sbumit btn to the next page
+  btnSubmit.addEventListener('click',clickToAnotherPage)
+
+
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   var elems = document.querySelectorAll('select');
+  //   var instances = M.FormSelect.init(elems, options);
+  // });
 

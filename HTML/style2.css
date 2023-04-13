@@ -1,151 +1,205 @@
 :root {
-    --orange: #f8b195;
-    --red: #f67280;
-    --pink: #c06c848a;
-    --purple-transparent: #85759459;
-    --purple: #7d5e97;
-    --blue: #355c7d;
+  --orange: #f8b195;
+  --red: #f67280;
+  --pink: #c06c848a;
+  --purple-transparent: #85759459;
+  --purple: #7d5e97;
+  --blue: #355c7d;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
-*{
-  margin: 0%;
+
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+main {
+display: flex;
+flex-wrap: wrap;
 }
 
 .container {
-display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
+ display: flex;
+ flex-wrap: wrap;
+  height: auto;
+  width: 100%;
+  flex-basis: 100%;
 }
 
-.column {
-flex-basis: 100%;
-justify-content: space-between;
+/* .colnum {
+  display: table-column;
+
+  justify-content:center;
+  align-items: center;
+  height: auto;
+
+} */
+
+.column-left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /* display: flex;
+  flex-wrap: wrap; */
+  height: 70vh;
+  padding-right: 5px;
+  flex-basis: 50%;
+  /* margin-left: -250px; */
 }
 
-.left {
-align-items: center;
-padding: 10px;
-flex-basis: 40%;
+.column-right {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /* flex-wrap: wrap;
+  display: flex; */
+  height: 70vh;
+  padding-left: 5px;
+  flex-basis: 50%;
+  /* margin-right: -250px; */
 }
 
-.right {
-align-items: center;
-padding: 10px;
-flex-basis: 60%;
+#map {
+
+  height: 550px;
+  width: 650px;
+}
+
+#add-event button {
+  align-items: center;
 }
 
 .container-time {
-max-width: 100%;
-margin: 0 auto;
-padding: 5px;
-align-items: start;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 5px;
+  align-items: start;
 }
 
 .container-time h1 {
-text-align: start;
-font-size: 40px;
-margin-bottom: 20px;
+  text-align: start;
+  font-size: 40px;
+  margin-bottom: 20px;
 }
 
 .planner {
-display: flex;
-margin-bottom: 20px;
+  display: flex;
+  margin-bottom: 20px;
 }
 
 .hours {
-flex-basis: 100px;
-margin-left: -45px;
-margin-right: 20px;
+  flex-basis: 100px;
+  margin-left: -45px;
+  margin-right: 20px;
 }
 
 .hour {
-text-align: end;
-height: 60px;
-padding: 5px;
+  text-align: end;
+  height: 60px;
+  padding: 5px;
 }
 
 .events {
-flex: 1;
-display: grid;
-grid-template-columns: repeat(1, 1fr);
-grid-template-rows: repeat(9, 60px);
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(9, 60px);
 }
 
 #textarea1 {
-align-items: start;
-border: 1px solid #ccc;
-border-radius: 5px;
-padding: 10px;
-text-align: left;
-font-size: 20px;
+  align-items: start;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: left;
+  font-size: 20px;
 }
 
 section {
-border-top: 2px solid black;
+  border-top: 2px solid black;
 }
 
-.checklist{
-width: 100%;
+.checklist {
+  width: 100%;
 }
+
 form {
-display: inline-block
-width: 100%
+  display: inline-block;
+  width: 100%;
 }
+
 body {
-font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 h1 {
-text-align: center;
+  text-align: center;
 }
 
 ul {
-display: inline-block;
-list-style-type: none;
-padding: 0;
+  display: inline-block;
+  list-style-type: none;
+  padding: 0;
 }
 
 li {
-display: flex;
-align-items: center;
-margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 input[type="checkbox"] {
-margin-right: 10px;
+  margin-right: 10px;
 }
 
 input[type="text"] {
-flex: 1;
-padding: 5px;
-border: 1px solid #000000;
-border-radius: 5px;
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #000000;
+  border-radius: 5px;
 }
 
-#add-button {
-display: inline-block;
-margin-top: 10px;
-background-color: #4CAF50;
-color: white;
-border: none;
-padding: 10px;
-cursor: pointer;
-border-radius: 5px;
-}
+/* #add-button {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+} */
 
-#add-button:hover {
-background-color: #3e8e41;
-}
+
 
 
 
 /* label {
 display: inline-block;
 } */
-@media screen and (max-width: 768px) {
-.left,
-.right {
-  flex-basis: 100%;
+/* @media screen and (max-width: 768px) { */
+/* 
+  .left,
+  .right {
+    flex-basis: 100%;
+  }
+} */
+/* @media (max-width: 1200px) {
+  main {
+    padding-right: 120px;
+  }
 }
+@media (max-width: 950px) {
+  main {
+    padding-right: 80px;
+  }
 }
+
+@media (max-width: 800px) {
+  main {
+    padding-right: 0;
+  }
+}  */

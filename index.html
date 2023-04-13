@@ -31,7 +31,6 @@
         <div class="layer" data-depth-x="0.30"><img src="assets/images/clouds.png"></div>
         <div class="layer" data-depth-x="0.25"><img src="assets/images/water.png"></div>
         <div class="layer" data-depth-x="-0.25"><img src="assets/images/rocks.png"></div>
-        <!-- <div class="layer" data-depth-x="-0.25"><img src="assets/images/sand.png"></div> -->
       </div>
     </div>
 
@@ -99,11 +98,120 @@
           <li class="inactive"> </li>
         </ul>
       </div>
-      <!-- <button class="submit">Submit</button> -->
     </div>
 
+    <br/>
+    <div class="drop">
+      <select class="dropdown" id="start-time-select">
+        <option class="dropdown-content" value="" disabled selected>Choose your start time</option>
+        <option class="dropdown-content" value="00:00">12:00 am</option>
+        <option class="dropdown-content" value="00:30">12:30 am</option>
+        <option class="dropdown-content" value="01:00">01:00 am</option>
+        <option class="dropdown-content" value="01:30">01:30 am</option>
+        <option class="dropdown-content" value="02:00">02:00 am</option>
+        <option class="dropdown-content" value="02:30">02:30 am</option>
+        <option class="dropdown-content" value="03:00">03:00 am</option>
+        <option class="dropdown-content" value="03:30">03:30 am</option>
+        <option class="dropdown-content" value="04:00">04:00 am</option>
+        <option class="dropdown-content" value="04:30">04:30 am</option>
+        <option class="dropdown-content" value="05:00">05:00 am</option>
+        <option class="dropdown-content" value="05:30">05:30 am</option>
+        <option class="dropdown-content" value="06:00">06:00 am</option>
+        <option class="dropdown-content" value="06:30">06:30 am</option>
+        <option class="dropdown-content" value="07:00">07:00 am</option>
+        <option class="dropdown-content" value="07:30">07:30 am</option>
+        <option class="dropdown-content" value="08:00">08:00 am</option>
+        <option class="dropdown-content" value="08:30">08:30 am</option>
+        <option class="dropdown-content" value="09:00">09:00 am</option>
+        <option class="dropdown-content" value="09:30">09:30 am</option>
+        <option class="dropdown-content" value="10:00">10:00 am</option>
+        <option class="dropdown-content" value="10:30">10:30 am</option>
+        <option class="dropdown-content" value="11:00">11:00 am</option>
+        <option class="dropdown-content" value="11:30">11:30 am</option>
+        <option class="dropdown-content" value="12:00">12:00 pm</option>
+        <option class="dropdown-content" value="12:30">12:30 pm</option>
+        <option class="dropdown-content" value="13:00">01:00 pm</option>
+        <option class="dropdown-content" value="13:30">01:30 pm</option>
+        <option class="dropdown-content" value="14:00">02:00 pm</option>
+        <option class="dropdown-content" value="14:30">02:30 pm</option>
+        <option class="dropdown-content" value="15:00">03:00 pm</option>
+        <option class="dropdown-content" value="15:30">03:30 pm</option>
+        <option class="dropdown-content" value="16:00">04:00 pm</option>
+        <option class="dropdown-content" value="16:30">04:30 pm</option>
+        <option class="dropdown-content" value="17:00">05:00 pm</option>
+        <option class="dropdown-content" value="17:30">05:30 pm</option>
+        <option class="dropdown-content" value="18:00">06:00 pm</option>
+        <option class="dropdown-content" value="18:30">06:30 pm</option>
+        <option class="dropdown-content" value="19:00">07:00 pm</option>
+        <option class="dropdown-content" value="19:30">07:30 pm</option>
+        <option class="dropdown-content" value="20:00">08:00 pm</option>
+        <option class="dropdown-content" value="20:30">08:30 pm</option>
+        <option class="dropdown-content" value="21:00">09:00 pm</option>
+        <option class="dropdown-content" value="21:30">09:30 pm</option>
+        <option class="dropdown-content" value="22:00">10:00 pm</option>
+        <option class="dropdown-content" value="22:30">10:30 pm</option>
+        <option class="dropdown-content" value="23:00">11:00 pm</option>
+        <option class="dropdown-content" value="23:00">11:30 pm</option>
+      </select>
+      <label>Start Time</label>
+
+
+      <select class="dropdown" id="end-time-select">
+        <option class="dropdown-content" value="" disabled selected>Choose your end time</option>
+        <option class="dropdown-content" value="00:00">12:00 am</option>
+        <option class="dropdown-content" value="00:30">12:30 am</option>
+        <option class="dropdown-content" value="01:00">01:00 am</option>
+        <option class="dropdown-content" value="01:30">01:30 am</option>
+        <option class="dropdown-content" value="02:00">02:00 am</option>
+        <option class="dropdown-content" value="02:30">02:30 am</option>
+        <option class="dropdown-content" value="03:00">03:00 am</option>
+        <option class="dropdown-content" value="03:30">03:30 am</option>
+        <option class="dropdown-content" value="04:00">04:00 am</option>
+        <option class="dropdown-content" value="04:30">04:30 am</option>
+        <option class="dropdown-content" value="05:00">05:00 am</option>
+        <option class="dropdown-content" value="05:30">05:30 am</option>
+        <option class="dropdown-content" value="06:00">06:00 am</option>
+        <option class="dropdown-content" value="06:30">06:30 am</option>
+        <option class="dropdown-content" value="07:00">07:00 am</option>
+        <option class="dropdown-content" value="07:30">07:30 am</option>
+        <option class="dropdown-content" value="08:00">08:00 am</option>
+        <option class="dropdown-content" value="08:30">08:30 am</option>
+        <option class="dropdown-content" value="09:00">09:00 am</option>
+        <option class="dropdown-content" value="09:30">09:30 am</option>
+        <option class="dropdown-content" value="10:00">10:00 am</option>
+        <option class="dropdown-content" value="10:30">10:30 am</option>
+        <option class="dropdown-content" value="11:00">11:00 am</option>
+        <option class="dropdown-content" value="11:30">11:30 am</option>
+        <option class="dropdown-content" value="12:00">12:00 pm</option>
+        <option class="dropdown-content" value="12:30">12:30 pm</option>
+        <option class="dropdown-content" value="13:00">01:00 pm</option>
+        <option class="dropdown-content" value="13:30">01:30 pm</option>
+        <option class="dropdown-content" value="14:00">02:00 pm</option>
+        <option class="dropdown-content" value="14:30">02:30 pm</option>
+        <option class="dropdown-content" value="15:00">03:00 pm</option>
+        <option class="dropdown-content" value="15:30">03:30 pm</option>
+        <option class="dropdown-content" value="16:00">04:00 pm</option>
+        <option class="dropdown-content" value="16:30">04:30 pm</option>
+        <option class="dropdown-content" value="17:00">05:00 pm</option>
+        <option class="dropdown-content" value="17:30">05:30 pm</option>
+        <option class="dropdown-content" value="18:00">06:00 pm</option>
+        <option class="dropdown-content" value="18:30">06:30 pm</option>
+        <option class="dropdown-content" value="19:00">07:00 pm</option>
+        <option class="dropdown-content" value="19:30">07:30 pm</option>
+        <option class="dropdown-content" value="20:00">08:00 pm</option>
+        <option class="dropdown-content" value="20:30">08:30 pm</option>
+        <option class="dropdown-content" value="21:00">09:00 pm</option>
+        <option class="dropdown-content" value="21:30">09:30 pm</option>
+        <option class="dropdown-content" value="22:00">10:00 pm</option>
+        <option class="dropdown-content" value="22:30">10:30 pm</option>
+        <option class="dropdown-content" value="23:00">11:00 pm</option>
+        <option class="dropdown-content" value="23:00">11:30 pm</option>
+      </select>
+      <label>End Time</label>
+    </div>  
+
       <br/>
-    <button onclick= window.location.href='HTML/details.html' class="submit">Submit</button>
+    <button class="submit">Submit</button>
 
   </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
