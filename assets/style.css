@@ -109,26 +109,6 @@ main {
     padding: 25px 30px 10px;
 }
 
-
-.container {
-    width: 450px;
-    padding: 10px
-    background: #f8b195(255, 255, 255, 0.15);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  
-}
-
-
-.container h1 {
-    padding: 2px;
-    font-size: 30px;
-    color: var(--blue);
-    text-align: center;
-}
-
 .calendar {
     padding: 20px;
 }
