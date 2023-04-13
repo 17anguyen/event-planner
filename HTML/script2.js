@@ -137,14 +137,11 @@
       //   document.getElementById('content').innerText = output;
       // }
 
-//second page variables
-var btnsubmitEl = document.getElementById('formsubmit');
-var inputEl =document.getElementById('eventName');
-var donebtnEl = document.getElementById('closeEventTab');
+
 
 
 //add event to google calendar 
-function createEventGoogle(nameEvent,dateTStart, dateTimeEnd){
+function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,){
 
     const event = {
       'summary': nameEvent,
@@ -181,6 +178,7 @@ function createEventGoogle(nameEvent,dateTStart, dateTimeEnd){
     event.preventDefault()
   if(localStorage !== null){
     var selecteDateUser = localStorage.getItem("dateselected");
+    var selectedHour = localStorage.getItem("hourselected")
     var starthour = "14"
     var endhour = parseInt(starthour)+ 01;
     console.log(endhour)
@@ -197,11 +195,8 @@ function createEventGoogle(nameEvent,dateTStart, dateTimeEnd){
   }
   function backToMainCalendar(){
     window.location.href = "../index.html";
-    //save info to local storage
 
   }
-  btnsubmitEl.addEventListener('click', saveInfoEvent)
-  donebtnEl.addEventListener('click',backToMainCalendar)
 
   // alivia's code starts
 // Get the input and button elements
