@@ -104,9 +104,9 @@ function handleSignoutClick() {
 // Get the input and button elements
 const taskInput = document.querySelector('.task-input');
 const addButton = document.querySelector('#add-button');
-const eventForm = document.querySelector('#eventForm');
+// const eventForm = document.querySelector('#eventForm');
 const eventInput = document.querySelector('#event-name');
-const events = document.querySelectorAll('.event');
+const events = document.querySelectorAll('.events');
 const eventsButton = document.querySelector('.events-submit');
 const eventBtnEl = document.querySelector('#add-event');
 const attendeeLisEl = document.querySelector('#attendees')
@@ -189,20 +189,20 @@ function initMap() {
 }
 
 //add event to google calendar 
-function createEventGoogle(nameEvent, dateTStart, dateTimeEnd, attendeeList, location) {
-
-  const event = {
-    'summary': nameEvent,
-    'location': location,
-    'start': {
-      'dateTime': dateTStart,
-      'timeZone': '',
-    },
-    'end': {
-      'dateTime': dateTimeEnd,
-      'timeZone': '',
-    },
-    'attendees': attendeeList,
+function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,attendeeList){
+  if (dateTStart && nameEvent){
+    const event = {
+      'summary': nameEvent,
+      'location': '800 Howard St., San Francisco, CA 94103',
+      'start': {
+        'dateTime': dateTStart,
+        'timeZone': '',
+      },
+      'end': {
+        'dateTime': dateTimeEnd,
+        'timeZone': '',
+      },
+      'attendees': attendeeList,
 
     'colorId': 3,
   };
@@ -218,6 +218,7 @@ function createEventGoogle(nameEvent, dateTStart, dateTimeEnd, attendeeList, loc
 
 }
 
+}
 
 function saveInfoEvent(event) {
   event.preventDefault()
@@ -233,28 +234,25 @@ function saveInfoEvent(event) {
   console.log(location)
   if (localStorage !== null) {
     var selecteDateUser = localStorage.getItem("dateselected");
-    //var selectedEndTime = localStorage.getItem("endTime", endTime);
-    //var selectedStartTime = localStorage.getItem("startTime", startTime);
-    var starthour = "15"
-    var endhour = parseInt(starthour) + 01;
-    var dateParseStart = dayjs(selecteDateUser).format('YYYY-MM-DDT' + starthour + ':mm:ssZ');
-    var dateParseEnd = dayjs(selecteDateUser).format('YYYY-MM-DDT' + endhour + ':mm:ssZ')
+    var selectedEndTime = localStorage.getItem("endTime");
+    var selectedStartTime = localStorage.getItem("startTime");
+    var dateParseStart = dayjs(selecteDateUser).format('YYYY-MM-DDT'+selectedStartTime+':ssZ') ;
+    var dateParseEnd = dayjs(selecteDateUser).format('YYYY-MM-DDT'+selectedEndTime+':ssZ')
     var eventName = eventInput.value;
 
-    //getting attendee list to calendar format
+    //getting attendee list to calendar format standards and checking if more than one
     var listAt = attendeeLisEl.value;
     var attendeesList = listAt.split(',');
     var finalAttendeeList = [];
 
     for (i = 0; i < attendeesList.length; i++) {
       var attendeePerson = {};
-      attendeePerson['email'] = attendeesList[i].trim();
-      console.log(attendeesList[i]);
+      attendeePerson['email']= attendeesList[i].trim();
       finalAttendeeList.push(attendeePerson);
 
     }
-
-    createEventGoogle(eventName, dateParseStart, dateParseEnd, finalAttendeeList, location);
+    
+    //createEventGoogle(eventName,dateParseStart,dateParseEnd,finalAttendeeList);
 
   }
 
@@ -367,6 +365,6 @@ function loadTasks() {
 
 
 
-//$('#textarea').val('New Text');
-//M.textareaAutoResize($('#textarea'));
+// $('#textarea').val('New Text');
+// M.textareaAutoResize($('#textarea'));
 // alivias code ends
