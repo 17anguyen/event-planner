@@ -101,16 +101,8 @@ function handleSignoutClick() {
   }
 }
 
-// Get the input and button elements
-const taskInput = document.querySelector('.task-input');
-const addButton = document.querySelector('#add-button');
-// const eventForm = document.querySelector('#eventForm');
-const eventInput = document.querySelector('#event-name');
-const events = document.querySelectorAll('.events');
-const eventsButton = document.querySelector('.events-submit');
-const eventBtnEl = document.querySelector('#add-event');
-const attendeeLisEl = document.querySelector('#attendees')
 
+//-----------------------Map rendering 
 function initMap() {
   const CONFIGURATION = {
     "ctaTitle": "Checkout",
@@ -180,7 +172,7 @@ function initMap() {
       }
     }
   }
-
+// getting address from user selection
   function renderAddress(place) {
     map.setCenter(place.geometry.location);
     marker.setPosition(place.geometry.location);
@@ -188,12 +180,67 @@ function initMap() {
   }
 }
 
-//add event to google calendar 
-function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,attendeeList){
-  if (dateTStart && nameEvent){
+//------------------ Get the input and button elements
+const taskInput = document.querySelector('.task-input');
+const addButton = document.querySelector('#add-button');
+// const eventForm = document.querySelector('#eventForm');
+const eventInput = document.querySelector('#event-name');
+const events = document.querySelectorAll('.events');
+const eventsButton = document.querySelector('.events-submit');
+const eventBtnEl = document.querySelector('#add-event');
+const attendeeLisEl = document.querySelector('#attendees');
+
+
+
+
+function saveInfoEvent(event) {
+  event.preventDefault()
+  
+  var locationInputEl = document.getElementById("location-input");
+  var cityInput = document.querySelector("#locality-input");
+  var stateInput = document.querySelector("#administrative_area_level_1-input");
+  var zipInput = document.querySelector("#postal_code-input");
+  // state input
+  var location = locationInputEl.value + " " + cityInput.value + ", " + stateInput.value + " " + zipInput.value + " "
+  if (localStorage !== null) {
+    var selecteDateUser = localStorage.getItem("dateselected");
+    var selectedEndTime = localStorage.getItem("endTime");
+    var selectedStartTime = localStorage.getItem("startTime");
+    var dateParseStart = dayjs(selecteDateUser).format('YYYY-MM-DDT'+selectedStartTime+':ssZ') ;
+    var dateParseEnd = dayjs(selecteDateUser).format('YYYY-MM-DDT'+selectedEndTime+':ssZ')
+    var eventName = eventInput.value;
+
+    //getting attendee list to calendar format standards and checking if more than one
+    var listAt = attendeeLisEl.value;
+    var attendeesList = listAt.split(',');
+    var finalAttendeeList = [];
+
+    for (i = 0; i < attendeesList.length; i++) {
+      var attendeePerson = {};
+      attendeePerson['email']= attendeesList[i].trim();
+      finalAttendeeList.push(attendeePerson);
+
+    }
+    
+    createEventGoogle(eventName,dateParseStart,dateParseEnd,finalAttendeeList,location);
+
+    eventInput.value = '';
+    locationInputEl.value = ' ';
+     cityInput.value = ' ';
+    stateInput.value = ' ';
+    zipInput.value = ' ';
+    listAt.value = ' ';
+
+  }
+
+}
+
+//add event to the user's google calendar  
+function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,attendeeList,locationSelected){
+  if (dateTStart && nameEvent && dateTimeEnd){
     const event = {
       'summary': nameEvent,
-      'location': '800 Howard St., San Francisco, CA 94103',
+      'location': locationSelected,
       'start': {
         'dateTime': dateTStart,
         'timeZone': '',
@@ -217,44 +264,6 @@ function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,attendeeList){
   });
 
 }
-
-}
-
-function saveInfoEvent(event) {
-  event.preventDefault()
-  //var iframe = document.getElementById('iframeID');
-  //var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-  // select element by id "location-input"
-  var locationInputEl = document.getElementById("location-input")
-  var cityInput = document.querySelector("#locality-input")
-  var stateInput = document.querySelector("#administrative_area_level_1-input")
-  var zipInput = document.querySelector("#postal_code-input")
-  // state input
-  var location = locationInputEl.value + " " + cityInput.value + ", " + stateInput.value + " " + zipInput.value + " "
-  console.log(location)
-  if (localStorage !== null) {
-    var selecteDateUser = localStorage.getItem("dateselected");
-    var selectedEndTime = localStorage.getItem("endTime");
-    var selectedStartTime = localStorage.getItem("startTime");
-    var dateParseStart = dayjs(selecteDateUser).format('YYYY-MM-DDT'+selectedStartTime+':ssZ') ;
-    var dateParseEnd = dayjs(selecteDateUser).format('YYYY-MM-DDT'+selectedEndTime+':ssZ')
-    var eventName = eventInput.value;
-
-    //getting attendee list to calendar format standards and checking if more than one
-    var listAt = attendeeLisEl.value;
-    var attendeesList = listAt.split(',');
-    var finalAttendeeList = [];
-
-    for (i = 0; i < attendeesList.length; i++) {
-      var attendeePerson = {};
-      attendeePerson['email']= attendeesList[i].trim();
-      finalAttendeeList.push(attendeePerson);
-
-    }
-    
-    //createEventGoogle(eventName,dateParseStart,dateParseEnd,finalAttendeeList);
-
-  }
 
 }
 
