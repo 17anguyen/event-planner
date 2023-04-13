@@ -137,7 +137,12 @@
       //   document.getElementById('content').innerText = output;
       // }
 
-
+// Get the input and button elements
+const taskInput = document.querySelector('.task-input');
+const addButton = document.querySelector('#add-button');
+const eventForm = document.querySelector('#eventForm');
+const eventInput = document.querySelector('#eventInput');
+const events = document.querySelectorAll('.event');
 
 
 //add event to google calendar 
@@ -156,8 +161,8 @@ function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,){
         'timeZone': '',
       },
       'attendees': [
-        {'email': 'lpage@example.com'},
-        {'email': 'sbrin@example.com'}
+        {'displayName': 'name'},
+        {'displayName': 'sbrin@example.com'}
       ],
 
       'colorId':3,
@@ -178,14 +183,12 @@ function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,){
     event.preventDefault()
   if(localStorage !== null){
     var selecteDateUser = localStorage.getItem("dateselected");
-    var selectedHour = localStorage.getItem("hourselected")
+    //var selectedHour = localStorage.getItem("hourselected")
     var starthour = "14"
     var endhour = parseInt(starthour)+ 01;
-    console.log(endhour)
     var dateParsestart = dayjs(selecteDateUser).format('YYYY-MM-DDT'+starthour+':mm:ssZ') ;
     var dateParseend = dayjs(selecteDateUser).format('YYYY-MM-DDT'+endhour+':mm:ssZ')
-
-    var eventName =inputEl.value;
+    var eventName = eventInput.value;
 
     createEventGoogle(eventName,dateParsestart,dateParseend);
 
@@ -199,12 +202,7 @@ function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,){
   }
 
   // alivia's code starts
-// Get the input and button elements
-const taskInput = document.querySelector('.task-input');
-const addButton = document.querySelector('#add-button');
-const eventForm = document.querySelector('#eventForm');
-const eventInput = document.querySelector('#eventInput');
-const events = document.querySelectorAll('.event');
+
 
 // Load events from local storage
 for (let i = 0; i < localStorage.length; i++) {
