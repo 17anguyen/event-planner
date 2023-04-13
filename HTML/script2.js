@@ -200,6 +200,7 @@ function saveInfoEvent(event) {
   var cityInput = document.querySelector("#locality-input");
   var stateInput = document.querySelector("#administrative_area_level_1-input");
   var zipInput = document.querySelector("#postal_code-input");
+  var countryInput = document.querySelector('#country-input')
   // state input
   var location = locationInputEl.value + " " + cityInput.value + ", " + stateInput.value + " " + zipInput.value + " "
   if (localStorage !== null) {
@@ -229,7 +230,8 @@ function saveInfoEvent(event) {
      cityInput.value = ' ';
     stateInput.value = ' ';
     zipInput.value = ' ';
-    listAt.value = ' ';
+    attendeeLisEl.value = ' ';
+    countryInput.value= ' ';
 
   }
 
