@@ -18,53 +18,51 @@
 
 
 <body>
- 
+
   <main>
-        <!--Add buttons to initiate auth sequence and sign out-->
-        <div>
-          <button id="authorize_button" onclick="handleAuthClick()">Sign Into Your Account</button>
-          <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
-        </div>
-    <div>
- 
-    </div>
 
-    <div class="container">
 
-      <div class="column left">
-        <h2>Big Picture Management</h2>
+    <div class="row">
+     
+
+      <div class="s12 m6 col bg-pink">
+        <h2> Picture Management</h2>
         <!-- <div class="row"> -->
-        <form class="col s12">
+        <form>
 
           <!-- <div class="row"> -->
-          <div class="input-field col s12">
-            <input placeholder="Placeholder" id="event-name" type="text" class="validate">
+          <div class="input-field">
+            <input placeholder="Event Title" id="event-name" type="text" class="validate">
             <label for="event-name">Event Title</label>
           </div>
 
-          <div class="input-field col s12">
-            <input placeholder="Placeholder" id="attendees" type="text" class="validate">
+          <div class="input-field">
+            <input placeholder="Separate emails by comas!" id="attendees" type="text" class="validate">
             <label for="attendees">Attendees</label>
           </div>
-          
+
 
         </form>
 
         <div id="map">
 
-            <iframe
-              src="https://storage.googleapis.com/maps-solutions-bsi03h2fdh/address-selection/7sjq/address-selection.html"
-              width="100%" height="100%" style="border:0;" loading="lazy">
-            </iframe>
-          </div>
+          <iframe
+            src="https://storage.googleapis.com/maps-solutions-bsi03h2fdh/address-selection/7sjq/address-selection.html"
+            width="100%" height="100%" style="border:0;" loading="lazy">
+          </iframe>
+        </div>
 
 
-        <button id="add-event" class="waves-effect waves-purple btn-large" >Add Event</button>
-
+        <button id="add-event" class="waves-effect waves-purple btn-large">Add Event</button>
+        <!--Add buttons to initiate auth sequence and sign out-->
+        <div>
+          <button id="authorize_button" onclick="handleAuthClick()">Sign Into Your Account</button>
+          <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
+        </div>
       </div>
 
 
-      <div class="column right">
+      <div class="s12 m6 col bg-pink">
         <h2>Plan the Details!</h2>
 
         <div class="container-time">
@@ -81,32 +79,33 @@
               <div class="hour">5pm</div>
             </div>
             <div class="events">
-              <textarea placeholder="Add something to your schedule!" id="textarea1" class="materialize-textarea"></textarea>
-              <textarea  id="textarea1" class="materialize-textarea"></textarea>
-              <textarea  id="textarea1" class="materialize-textarea"></textarea>
-              <textarea  id="textarea1" class="materialize-textarea"></textarea>
-              <textarea  id="textarea1" class="materialize-textarea"></textarea>
-              <textarea  id="textarea1" class="materialize-textarea"></textarea>
-              <textarea  id="textarea1" class="materialize-textarea"></textarea>
-              <textarea  id="textarea1" class="materialize-textarea"></textarea>
-              <textarea  id="textarea1" class="materialize-textarea"></textarea>
-              <button class="waves-effect waves-purple btn-large"class="events-submit">Update</button>
+              <textarea placeholder="Add something to your schedule!" id="textarea1"
+                class="materialize-textarea"></textarea>
+              <textarea id="textarea1" class="materialize-textarea"></textarea>
+              <textarea id="textarea1" class="materialize-textarea"></textarea>
+              <textarea id="textarea1" class="materialize-textarea"></textarea>
+              <textarea id="textarea1" class="materialize-textarea"></textarea>
+              <textarea id="textarea1" class="materialize-textarea"></textarea>
+              <textarea id="textarea1" class="materialize-textarea"></textarea>
+              <textarea id="textarea1" class="materialize-textarea"></textarea>
+              <textarea id="textarea1" class="materialize-textarea"></textarea>
+              <button class="waves-effect waves-purple btn-large" class="events-submit">Update</button>
             </div>
           </div>
         </div>
 
         <br />
-          <form action="#">
-            <label>
-              <input type="checkbox" />
-              <ul class="checklist" id="list">
-                <li>
-                  <input placeholder="Add a Task" type="text" class="task-input">
-                </li>
-              </ul>
-              <input class="waves-effect waves-purple btn-large"type="button" value="Add Task" id="add-button">
-            </label>
-          </form>
+        <form action="#">
+          <label>
+            <input type="checkbox" />
+            <ul class="checklist" id="list">
+              <li>
+                <input placeholder="Add a Task" type="text" class="task-input">
+              </li>
+            </ul>
+            <input class="waves-effect waves-purple btn-large" type="button" value="Add Task" id="add-button">
+          </label>
+        </form>
       </div>
 
     </div>

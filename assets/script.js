@@ -15,6 +15,7 @@
   var selectStartTimeEl = document.querySelector('#start-time-select');
   var selectEndTimeEl = document.querySelector('#end-time-select');
  
+  var selectedDay;
 
 
 
@@ -56,8 +57,15 @@
   }
   function saveDateValue(event){
     dateSelected= event.target.getAttribute("data-set");
+    if (selectedDay) {
+      selectedDay.classList.remove("selected")
+    }
+    event.target.classList.add("selected");
+    selectedDay = event.target
     localStorage.setItem("dateselected", dateSelected);
+    
   }
+
   function clickToAnotherPage(){
     console.log(selectStartTimeEl);
     selectedStartTime = selectStartTimeEl.value;

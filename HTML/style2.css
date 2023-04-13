@@ -6,56 +6,68 @@
   --purple: #7d5e97;
   --blue: #355c7d;
 }
-
+.bg-pink {
+  background-color: pink;
+}
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
 * {
-  margin: 0%;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
 
 main {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: 30px;
-  margin-left: 30px;
+display: flex;
+flex-wrap: wrap;
 }
+
 .container {
-  display: flex;
-  flex-wrap: wrap;
+ display: flex;
+ flex-wrap: wrap;
   height: auto;
-  justify-content: space-between;
-}
-
-.column {
-  flex-wrap: wrap;
+  width: 100%;
   flex-basis: 100%;
-  justify-content: space-between;
-  height: auto;
 }
 
-.left {
-  flex-wrap: wrap;
-  height: auto;
+/* .colnum {
+  display: table-column;
+
+  justify-content:center;
   align-items: center;
-  padding: 10px;
-  flex-basis: 40%;
-  margin-left: -250px;
+  height: auto;
+
+} */
+
+.column-left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /* display: flex;
+  flex-wrap: wrap; */
+  height: 70vh;
+  padding-right: 5px;
+  flex-basis: 50%;
+  /* margin-left: -250px; */
 }
 
-.right {
-  flex-wrap: wrap;
-  height: auto;
-  align-items: center;
-  padding: 10px;
-  flex-basis: 60%;
-  margin-right: -250px;
+.column-right {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /* flex-wrap: wrap;
+  display: flex; */
+  height: 70vh;
+  padding-left: 5px;
+  flex-basis: 50%;
+  /* margin-right: -250px; */
 }
 
 #map {
-  flex-wrap: wrap;
-  
-  height: 80%;
-  width: 700px;
+
+  height: 550px;
+  width: 650px;
 }
 
 #add-event button {
@@ -117,7 +129,8 @@ section {
 }
 
 form {
-  display: inline-block width: 100%
+  display: inline-block;
+  width: 100%;
 }
 
 body {
@@ -169,10 +182,26 @@ input[type="text"] {
 /* label {
 display: inline-block;
 } */
-@media screen and (max-width: 768px) {
-
+/* @media screen and (max-width: 768px) { */
+/* 
   .left,
   .right {
     flex-basis: 100%;
   }
+} */
+/* @media (max-width: 1200px) {
+  main {
+    padding-right: 120px;
+  }
 }
+@media (max-width: 950px) {
+  main {
+    padding-right: 80px;
+  }
+}
+
+@media (max-width: 800px) {
+  main {
+    padding-right: 0;
+  }
+}  */

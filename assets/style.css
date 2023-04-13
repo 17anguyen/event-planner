@@ -192,6 +192,9 @@ main {
     background: var(--purple-transparent);
 }
 
+.selected {
+    background: var(--purple-transparent);
+}
 
 header .icons {
     display: flex;
