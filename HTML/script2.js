@@ -140,23 +140,29 @@
 //second page variables
 var btnsubmitEl = document.getElementById('formsubmit');
 var inputEl =document.getElementById('eventName');
+var donebtnEl = document.getElementById('closeEventTab');
 
 
 //add event to google calendar 
-function createEventGoogle(){
+function createEventGoogle(nameEvent,dateTStart, dateTimeEnd){
 
     const event = {
-      'summary': 'New fake event',
+      'summary': nameEvent,
       'location': '800 Howard St., San Francisco, CA 94103',
       'description': 'A chance to hear more about Google\'s developer products.',
       'start': {
-        'dateTime': '2023-04-28T09:00:00-07:00',
-        'timeZone': 'America/Los_Angeles'
+        'dateTime': dateTStart,
+        'timeZone': '',
       },
       'end': {
-        'dateTime': '2023-04-30T17:00:00-07:00',
-        'timeZone': 'America/Los_Angeles'
+        'dateTime': dateTimeEnd,
+        'timeZone': '',
       },
+      'attendees': [
+        {'email': 'lpage@example.com'},
+        {'email': 'sbrin@example.com'}
+      ],
+
       'colorId':3,
     };
 
@@ -166,7 +172,7 @@ function createEventGoogle(){
     });
     
     request.execute(function(event) {
-      appendPre('Event created: ' + event.htmlLink);
+      appendPre('Event created: ' + event.summary);
     });
     
   }
@@ -175,17 +181,27 @@ function createEventGoogle(){
     event.preventDefault()
   if(localStorage !== null){
     var selecteDateUser = localStorage.getItem("dateselected");
+    var starthour = "14"
+    var endhour = parseInt(starthour)+ 01;
+    console.log(endhour)
+    var dateParsestart = dayjs(selecteDateUser).format('YYYY-MM-DDT'+starthour+':mm:ssZ') ;
+    var dateParseend = dayjs(selecteDateUser).format('YYYY-MM-DDT'+endhour+':mm:ssZ')
+
     var eventName =inputEl.value;
 
+    createEventGoogle(eventName,dateParsestart,dateParseend);
+
+
   }
   
+  }
+  function backToMainCalendar(){
+    window.location.href = "../index.html";
+    //save info to local storage
 
-  console.log(selecteDateUser)
-  console.log(eventName)
-  
-  
   }
   btnsubmitEl.addEventListener('click', saveInfoEvent)
+  donebtnEl.addEventListener('click',backToMainCalendar)
 
   // alivia's code starts
 // Get the input and button elements
