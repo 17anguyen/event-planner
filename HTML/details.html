@@ -23,10 +23,10 @@
 
 
     <div class="row">
-     
 
-      <div class="s12 m6 col bg-pink">
-        <h2> Picture Management</h2>
+
+      <div class="s12 m6 col">
+        <h2> Big Picture Management</h2>
         <!-- <div class="row"> -->
         <form>
 
@@ -44,39 +44,40 @@
 
         </form>
 
-        <div id="map">
-        
-            <div class="card-container">
-              <div class="panel">
-                <div>
-                  <img class="sb-title-icon" src="https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg" alt="">
-                  <span class="sb-title">Address Selection</span>
-                </div>
-                <input type="text" placeholder="Address" id="location-input"/>
-                <input type="text" placeholder="Apt, Suite, etc (optional)"/>
-                <input type="text" placeholder="City" id="locality-input"/>
-                <div class="half-input-container">
-                  <input type="text" class="half-input" placeholder="State/Province" id="administrative_area_level_1-input"/>
-                  <input type="text" class="half-input" placeholder="Zip/Postal code" id="postal_code-input"/>
-                </div>
-                <input type="text" placeholder="Country" id="country-input"/>
+        <div>
+          <div class="card-container">
+            <div class="panel">
+              <div>
+                <img class="sb-title-icon"
+                  src="https://fonts.gstatic.com/s/i/googlematerialicons/location_pin/v5/24px.svg" alt="">
+                <span class="sb-title">Address Selection</span>
               </div>
-              <div class="map" id="gmp-map"></div>
+              <input type="text" placeholder="Address" id="location-input" />
+              <input type="text" placeholder="Apt, Suite, etc (optional)" />
+              <input type="text" placeholder="City" id="locality-input" />
+              <div class="half-input-container">
+                <input type="text" class="half-input" placeholder="State/Province"
+                  id="administrative_area_level_1-input" />
+                <input type="text" class="half-input" placeholder="Zip/Postal code" id="postal_code-input" />
+              </div>
+              <input type="text" placeholder="Country" id="country-input" />
             </div>
+            <div class="map" id="gmp-map"></div>
           </div>
+        </div>
 
 
 
         <button id="add-event" class="waves-effect waves-purple btn-large">Add Event</button>
         <!--Add buttons to initiate auth sequence and sign out-->
-        <div>
-          <button id="authorize_button" onclick="handleAuthClick()">Sign Into Your Account</button>
-          <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
-        </div>
+        <button class="waves-effect waves-purple btn-large" id="authorize_button" onclick="handleAuthClick()">Sign Into
+          Your Account</button>
+        <button class="waves-effect waves-purple btn-large" id="signout_button" onclick="handleSignoutClick()">Sign
+          Out</button>
       </div>
 
 
-      <div class="s12 m6 col bg-pink">
+      <div class="s12 m6 col">
         <h2>Plan the Details!</h2>
 
         <div class="container-time">
@@ -108,10 +109,8 @@
           </div>
         </div>
 
-        <br />
         <form action="#">
           <label>
-            <input type="checkbox" />
             <ul class="checklist" id="list">
               <li>
                 <input placeholder="Add a Task" type="text" class="task-input">
@@ -126,7 +125,9 @@
 </body>
 
 </main>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0Ak_HeBNj498WgcycyKWWEs_koGOrYiI&libraries=places&callback=initMap&solution_channel=GMP_QB_addressselection_v1_cAB" async defer></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0Ak_HeBNj498WgcycyKWWEs_koGOrYiI&libraries=places&callback=initMap&solution_channel=GMP_QB_addressselection_v1_cAB"
+  async defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="./script2.js"></script>
 <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
