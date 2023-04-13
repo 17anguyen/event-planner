@@ -182,13 +182,14 @@ function initMap() {
 
 //------------------ Get the input and button elements
 const taskInput = document.querySelector('.task-input');
-const addButton = document.querySelector('#add-button');
+const addCheckTaskBtn = document.querySelector('#add-button');
 // const eventForm = document.querySelector('#eventForm');
 const eventInput = document.querySelector('#event-name');
 const events = document.querySelectorAll('.events');
-const eventsButton = document.querySelector('.events-submit');
+const taskUpdateBtn = document.querySelector('#task-submit-btn');
 const eventBtnEl = document.querySelector('#add-event');
 const attendeeLisEl = document.querySelector('#attendees');
+var eventAdded = false ;
 
 
 
@@ -200,6 +201,7 @@ function saveInfoEvent(event) {
   var cityInput = document.querySelector("#locality-input");
   var stateInput = document.querySelector("#administrative_area_level_1-input");
   var zipInput = document.querySelector("#postal_code-input");
+  var countryInput = document.querySelector('#country-input')
   // state input
   var location = locationInputEl.value + " " + cityInput.value + ", " + stateInput.value + " " + zipInput.value + " "
   if (localStorage !== null) {
@@ -229,8 +231,14 @@ function saveInfoEvent(event) {
      cityInput.value = ' ';
     stateInput.value = ' ';
     zipInput.value = ' ';
-    listAt.value = ' ';
+    attendeeLisEl.value = ' ';
+    countryInput.value= ' ';
 
+  }
+  if(eventAdded){
+    var eventAddedEl = document.getElementById("event-added-p");
+    eventAddedEl.textContent = "Event added to your calendar"
+    eventAdded = false;
   }
 
 }
@@ -263,6 +271,7 @@ function createEventGoogle(nameEvent,dateTStart, dateTimeEnd,attendeeList,locati
     appendPre('Event created: ' + event.summary);
   });
 
+  eventAdded = true;
 }
 
 }
@@ -279,17 +288,20 @@ function backToMainCalendar() {
 
 
 
-// alivia's code starts
+// Tasks save to local storage
 
 
-// Load events from local storage
-for (let i = 0; i < localStorage.length; i++) {
-  const key = localStorage.key(i);
-  if (key.startsWith('event')) {
-    const value = localStorage.getItem(key);
-    const index = key.split('-')[1];
-    events[index].textContent = value;
+// Load tasks from local storage
+function loadTasks(){
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key.startsWith('event')) {
+      const value = localStorage.getItem(key);
+      const index = key.split('-')[1];
+      events[index].textContent = value;
+    }
   }
+
 }
 
 // Add new event to the planner and local storage
@@ -305,11 +317,10 @@ function addEvent(e) {
   }
 }
 
-// Load tasks from local storage
-loadTasks();
+
 
 // Add event listener to button
-addButton.addEventListener('click', addTask);
+addCheckTaskBtn.addEventListener('click', addTask);
 
 // Add event listener to input field for pressing enter key
 taskInput.addEventListener('keypress', function (e) {
@@ -364,16 +375,7 @@ function saveTasks() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-function loadTasks() {
-  // Load tasks from local storage and create the necessary elements
-  let tasks = JSON.parse(localStorage.getItem('tasks'));
-  if (tasks !== null) {
-    const taskList = document
-  }
-}
 
 
-
-// $('#textarea').val('New Text');
-// M.textareaAutoResize($('#textarea'));
-// alivias code ends
+// Load tasks from local storage
+loadTasks();
