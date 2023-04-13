@@ -6,9 +6,7 @@
   --purple: #7d5e97;
   --blue: #355c7d;
 }
-.bg-pink {
-  background-color: pink;
-}
+
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 
 * {
