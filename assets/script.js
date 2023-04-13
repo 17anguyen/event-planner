@@ -53,7 +53,7 @@
   function saveDateValue(event){
 
     dateSelected= event.target.getAttribute("data-set");
-    window.location.href = "HTML/details.html";
+    // window.location.href = "HTML/details.html";
     localStorage.setItem("dateselected", dateSelected);
   }
 
