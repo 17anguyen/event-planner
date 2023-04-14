@@ -24,6 +24,12 @@ https://github.com/wagerfield/parallax
 Glassism background: 
 https://css.glass/ 
 
+## collaboration with
+Carolina Haggerty
+https://github.com/caroHagg
+Natasha Malhan
+https://github.com/natashamalhan
+
 ## Images
 ### page 1
 ![image](https://user-images.githubusercontent.com/43556891/231906537-e77650dd-6093-49ea-885b-e4170fdd8ce0.png)
