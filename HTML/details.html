@@ -23,19 +23,17 @@
 
 
     <div class="row">
-
-
+      <!-- left column -->
       <div class="s12 m6 col">
         <h2> Big Picture Management</h2>
-        <!-- <div class="row"> -->
         <form>
 
-          <!-- <div class="row"> -->
+          <!-- title input -->
           <div class="input-field">
             <input placeholder="Event Title" id="event-name" type="text" class="validate">
             <label for="event-name">Event Title</label>
           </div>
-
+          <!-- invitation block -->
           <div class="input-field">
             <input placeholder="Separate emails by comas!" id="attendees" type="text" class="validate">
             <label for="attendees">Attendees</label>
@@ -43,7 +41,7 @@
 
 
         </form>
-
+        <!-- location input -->
         <div>
           <div class="card-container">
             <div class="panel">
@@ -66,7 +64,7 @@
           </div>
         </div>
 
-
+        <!-- buttons -->
         <p id="event-added-p"> </p>
         <button id="add-event" class="waves-effect waves-purple btn-large">Add Event</button>
         <!--Add buttons to initiate auth sequence and sign out-->
@@ -74,16 +72,17 @@
           Your Account</button>
         <button class="waves-effect waves-purple btn-large" id="signout_button" onclick="handleSignoutClick()">Sign
           Out</button>
-
-        <iframe id="map" src="https://storage.googleapis.com/maps-solutions-bsi03h2fdh/commutes/tzp4/commutes.html" width="100%"
-          height="600px" style="border:0;" loading="lazy">
+        <!-- directions map -->
+        <iframe id="map" src="https://storage.googleapis.com/maps-solutions-bsi03h2fdh/commutes/tzp4/commutes.html"
+          width="100%" height="600px" style="border:0;" loading="lazy">
         </iframe>
       </div>
 
-
+      <!-- right column -->
       <div class="s12 m6 col">
         <h2>Plan the Details!</h2>
 
+        <!-- time manager -->
         <div class="container-time">
           <div class="planner">
             <div class="hours">
@@ -108,11 +107,13 @@
               <textarea id="textarea7" class="materialize-textarea"></textarea>
               <textarea id="textarea8" class="materialize-textarea"></textarea>
               <textarea id="textarea9" class="materialize-textarea"></textarea>
-              <button class="waves-effect waves-purple btn-large" class="events-submit" id="task-submit-btn">Update</button>
+              <button class="waves-effect waves-purple btn-large" class="events-submit"
+                id="task-submit-btn">Update</button>
             </div>
           </div>
         </div>
 
+        <!-- checklist -->
         <form action="#">
           <label>
             <ul class="checklist" id="list">
