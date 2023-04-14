@@ -26,7 +26,7 @@ section {
     height: 100vh;
     overflow: hidden;
 }
-
+/* backround start */
 .container-bg {
     position: fixed;
     width: 100%;
@@ -57,6 +57,7 @@ section {
     margin-left: -150px;
 }
 
+/* end */
 .submit {
     display: block;
     position: relative;
@@ -92,8 +93,8 @@ main {
     background-color: #C06C84;
 }
 
+/* container for calendar */
 .wrapper {
-    /* background: #fff; */
     border-radius: 10px;
     width: 450px;
     background: rgba(255, 255, 255, 0.15);
@@ -185,6 +186,7 @@ main {
     color: var(--purple)
 }
 
+/* day selector */
 .days li:hover::before {
     background: var(--purple-transparent);
 }
@@ -193,33 +195,7 @@ main {
 .selected {
     color: #fff;
 }
-
-header .icons {
-    display: flex;
-    flex-direction: row;
-}
-
-header .icons span {
-    height: 38px;
-    width: 38px;
-    margin: 0 1px;
-    text-align: center;
-    cursor: pointer;
-    text-align: 30px;
-    line-height: 38px;
-    border-radius: 50%;
-    color: #878787;
-    font-size: 1.9rem;
-
-}
-
-header .icons span:hover {
-    background: #f2f2f2;
-}
-
-header .icons span:last-child {
-    margin-right: -10px;
-}
+/* dropdown */
 
 .drop {
     display: flex;
@@ -259,20 +235,3 @@ header .icons span:last-child {
   .dropdown:hover .dropdown-content {
     display: block;
   }
-  /* .dropdown-content a {
-    border-radius: 10px;
-    width: 450px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    display: block;
-    color: #000000;
-    padding: 5px;
-    text-decoration: none;
-  } */
-  /* .dropdown-content:hover {
-    color: #FFFFFF;
-    background-color:var(--red);
-  } */
