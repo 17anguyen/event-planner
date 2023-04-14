@@ -190,6 +190,10 @@ const taskUpdateBtn = document.querySelector('#task-submit-btn');
 const eventBtnEl = document.querySelector('#add-event');
 const attendeeLisEl = document.querySelector('#attendees');
 var eventAdded = false ;
+var selecteDateUser = localStorage.getItem("dateselected");
+var selectedEndTime = localStorage.getItem("endTime");
+var selectedStartTime = localStorage.getItem("startTime");
+const taskList = document.querySelector('#list');
 
 
 
@@ -205,9 +209,7 @@ function saveInfoEvent(event) {
   // state input
   var location = locationInputEl.value + " " + cityInput.value + ", " + stateInput.value + " " + zipInput.value + " "
   if (localStorage !== null) {
-    var selecteDateUser = localStorage.getItem("dateselected");
-    var selectedEndTime = localStorage.getItem("endTime");
-    var selectedStartTime = localStorage.getItem("startTime");
+    
     var dateParseStart = dayjs(selecteDateUser).format('YYYY-MM-DDT'+selectedStartTime+':ssZ') ;
     var dateParseEnd = dayjs(selecteDateUser).format('YYYY-MM-DDT'+selectedEndTime+':ssZ')
     var eventName = eventInput.value;
@@ -293,29 +295,34 @@ function backToMainCalendar() {
 
 // Load tasks from local storage
 function loadTasks(){
+  
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    if (key.startsWith('event')) {
+    console.log(localStorage.key(i))
+    if (key.startsWith("task")) {
       const value = localStorage.getItem(key);
+      console.log(value)
       const index = key.split('-')[1];
-      events[index].textContent = value;
+      console.log(index)
+      // taskList[index].textContent = value;
+
     }
   }
 
 }
 
 // Add new event to the planner and local storage
-function addEvent(e) {
-  e.preventDefault();
-  const text = eventInput.value.trim();
-  if (text.length === 0) return;
-  for (let i = 0; i < events.length; i++) {
-    if (events[i].textContent === '') {
-      events[i].textContent = text;
-      localStorage.setItem
-    }
-  }
-}
+// function addEvent(e) {
+//   e.preventDefault();
+//   const text = eventInput.value.trim();
+//   if (text.length === 0) return;
+//   for (let i = 0; i < events.length; i++) {
+//     if (events[i].textContent === '') {
+//       events[i].textContent = text;
+//       localStorage.setItem
+//     }
+//   }
+// }
 
 
 
@@ -323,56 +330,46 @@ function addEvent(e) {
 addCheckTaskBtn.addEventListener('click', addTask);
 
 // Add event listener to input field for pressing enter key
-taskInput.addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') {
-    addTask();
-  }
-});
+// taskInput.addEventListener('keypress', function (e) {
+//   if (e.key === 'Enter') {
+//     addTask();
+//   }
+// });
 
 function addTask() {
   // Get the ul element and create a new li element
-  const taskList = document.querySelector('#list');
+  
   const newTask = document.createElement('li');
-
-  // Create a new checkbox and input field
-  const checkbox = document.createElement('input');
-  checkbox.type = 'checkbox';
-  checkbox.addEventListener('click', saveTasks);
-
   const taskInput = document.createElement('input');
   taskInput.type = 'text';
   taskInput.classList.add('task-input');
   taskInput.addEventListener('input', saveTasks);
-
-  // Append the checkbox and input field to the new li element
-  newTask.appendChild(checkbox);
   newTask.appendChild(taskInput);
 
   // Append the new li element to the ul element
   taskList.appendChild(newTask);
 
   // Clear the input field
-  taskInput.value = '';
+  taskInput.value = ' ';
 
   // Set focus on the input field
-  taskInput.focus();
+  // taskInput.focus();
 }
 
 function saveTasks() {
   // Get all the input fields and checkboxes
-  const taskInputs = document.querySelectorAll('.task-input');
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
+  var taskInputs = document.querySelectorAll('.task-input');
   // Save each task and its checked status to local storage
-  let tasks = [];
+  var tasks = [];
   for (let i = 0; i < taskInputs.length; i++) {
-    const task = taskInputs[i].value.trim();
-    const checked = checkboxes[i].checked;
+    var task = taskInputs[i].value.trim();
     if (task !== '') {
-      tasks.push({ task: task, checked: checked });
+      tasks.push({ 'task': task , 'date': selecteDateUser});
     }
   }
-  localStorage.setItem('tasks', JSON.stringify(tasks));
+  var taskname = 'tasks-'+ selecteDateUser;
+
+  localStorage.setItem(taskname, JSON.stringify(tasks));
 }
 
 
