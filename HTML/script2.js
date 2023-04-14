@@ -311,30 +311,10 @@ function loadTasks(){
 
 }
 
-// Add new event to the planner and local storage
-// function addEvent(e) {
-//   e.preventDefault();
-//   const text = eventInput.value.trim();
-//   if (text.length === 0) return;
-//   for (let i = 0; i < events.length; i++) {
-//     if (events[i].textContent === '') {
-//       events[i].textContent = text;
-//       localStorage.setItem
-//     }
-//   }
-// }
-
-
 
 // Add event listener to button
 addCheckTaskBtn.addEventListener('click', addTask);
 
-// Add event listener to input field for pressing enter key
-// taskInput.addEventListener('keypress', function (e) {
-//   if (e.key === 'Enter') {
-//     addTask();
-//   }
-// });
 
 function addTask() {
   // Get the ul element and create a new li element
@@ -352,8 +332,6 @@ function addTask() {
   // Clear the input field
   taskInput.value = ' ';
 
-  // Set focus on the input field
-  // taskInput.focus();
 }
 
 function saveTasks() {

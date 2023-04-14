@@ -81,11 +81,5 @@
   loadDaystoCalendar()
 
   //sbumit btn to the next page
-  btnSubmit.addEventListener('click',clickToAnotherPage)
-
-
-  // document.addEventListener('DOMContentLoaded', function() {
-  //   var elems = document.querySelectorAll('select');
-  //   var instances = M.FormSelect.init(elems, options);
-  // });
+  btnSubmit.addEventListener('click',clickToAnotherPage);
 
