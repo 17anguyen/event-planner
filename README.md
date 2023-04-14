@@ -23,3 +23,17 @@ background:
 https://github.com/wagerfield/parallax
 Glassism background: 
 https://css.glass/ 
+
+## Images
+### page 1
+![image](https://user-images.githubusercontent.com/43556891/231906537-e77650dd-6093-49ea-885b-e4170fdd8ce0.png)
+![image](https://user-images.githubusercontent.com/43556891/231906579-e67e647f-aee1-4bf7-b84c-dabf4a07fb91.png)
+![image](https://user-images.githubusercontent.com/43556891/231906616-494e11a5-715e-4d1f-80f1-6602270616ae.png)
+
+### page 2
+![image](https://user-images.githubusercontent.com/43556891/231906698-51b27ef0-0df3-45a9-abed-254cc8fff53f.png)
+![image](https://user-images.githubusercontent.com/43556891/231906724-0a5fe52f-002a-41a7-ac03-8e5c3adf861d.png)
+![image](https://user-images.githubusercontent.com/43556891/231906789-81811f92-8395-403b-8cfb-644c3714c51f.png)
+
+
+
