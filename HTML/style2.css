@@ -160,44 +160,7 @@ input[type="text"] {
   border-radius: 5px;
 }
 
-/* #add-button {
-  display: inline-block;
-  margin-top: 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-} */
-
-
-
-
-
-/* label {
-display: inline-block;
-} */
-/* @media screen and (max-width: 768px) { */
-/* 
-  .left,
-  .right {
-    flex-basis: 100%;
-  }
-} */
-/* @media (max-width: 1200px) {
-  main {
-    padding-right: 120px;
-  }
+#event-added-p {
+  font-size: 25px;
+  color: var(--pink);
 }
-@media (max-width: 950px) {
-  main {
-    padding-right: 80px;
-  }
-}
-
-@media (max-width: 800px) {
-  main {
-    padding-right: 0;
-  }
-}  */

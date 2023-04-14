@@ -237,7 +237,7 @@ function saveInfoEvent(event) {
   }
   if(eventAdded){
     var eventAddedEl = document.getElementById("event-added-p");
-    eventAddedEl.textContent = "Event added to your calendar"
+    eventAddedEl.textContent = "Event added to your calendar!"
     eventAdded = false;
   }
 
