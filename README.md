@@ -17,18 +17,6 @@ As a user and an organized individual, having a product that I can use for both 
 In every event created, I can view the event title, the location of the event, the placeholders, and an hourly view of the event itself.
 
 
-## Resources
-
-background:
-https://github.com/wagerfield/parallax
-Glassism background: 
-https://css.glass/ 
-
-## collaboration with
-Carolina Haggerty
-https://github.com/caroHagg
-Natasha Malhan
-https://github.com/natashamalhan
 
 ## Images
 ### page 1
@@ -41,5 +29,17 @@ https://github.com/natashamalhan
 ![image](https://user-images.githubusercontent.com/43556891/231906724-0a5fe52f-002a-41a7-ac03-8e5c3adf861d.png)
 ![image](https://user-images.githubusercontent.com/43556891/231906789-81811f92-8395-403b-8cfb-644c3714c51f.png)
 
+## Resources
+
+background:
+https://github.com/wagerfield/parallax
+Glassism background: 
+https://css.glass/ 
+
+## collaboration with
+Carolina Haggerty
+https://github.com/caroHagg
+Natasha Malhan
+https://github.com/natashamalhan
 
 
